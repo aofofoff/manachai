@@ -1,0 +1,436 @@
+/* ============================================================
+   Mana Chai Cashews — Foundations
+   Photography-first, near-invisible UI, single warm accent.
+   ============================================================ */
+
+/* Inter — SF Pro Display/Text substitute (Google Fonts)
+   Loaded via @import so any HTML that pulls this CSS gets the font. */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+:root {
+  /* ---------- COLOR · BRAND ACCENT ---------- */
+  /* Single accent — every "click me" signal. Warm chai amber. */
+  --color-primary:           #b8531d;  /* Chai Amber — links, pill CTAs */
+  --color-primary-focus:     #c75c22;  /* keyboard focus ring */
+  --color-primary-on-dark:   #e89557;  /* lighter amber for dark surfaces */
+  --color-on-primary:        #ffffff;
+
+  /* ---------- COLOR · SURFACE ---------- */
+  --color-canvas:            #ffffff;  /* pure white */
+  --color-canvas-parchment:  #f6f3ee;  /* warm off-white (signature) */
+  --color-surface-pearl:     #faf8f4;  /* near-white — ghost button fill */
+  --color-surface-tile-1:    #272729;  /* primary dark tile */
+  --color-surface-tile-2:    #2a2a2c;  /* +1 step — sits above tile-1 */
+  --color-surface-tile-3:    #252527;  /* -1 step — bottom of stack */
+  --color-surface-black:     #000000;  /* true void: global nav, video */
+  --color-surface-chip-translucent: #d2d2d7; /* base for ~64% alpha chips */
+
+  /* ---------- COLOR · TEXT ---------- */
+  --color-ink:               #1d1d1f;  /* headlines, body */
+  --color-body:              #1d1d1f;  /* same as ink */
+  --color-body-on-dark:      #ffffff;
+  --color-body-muted:        #cccccc;  /* secondary on dark */
+  --color-ink-muted-80:      #333333;  /* body on Pearl */
+  --color-ink-muted-48:      #7a7a7a;  /* disabled, fine print */
+
+  /* ---------- COLOR · HAIRLINES ---------- */
+  --color-divider-soft:      #f0ece4;  /* soft ring on secondary btns */
+  --color-hairline:          #e4dfd4;  /* 1px border on utility cards */
+
+  /* ---------- TYPOGRAPHY · FAMILIES ---------- */
+  /* SF Pro is proprietary; system-ui resolves to real SF on Apple OSes.
+     Inter is the fallback for non-Apple platforms. */
+  --font-display: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+  --font-text:    "Inter", system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+
+  /* ---------- TYPOGRAPHY · SCALE ---------- */
+  /* token              size       wt   line   tracking */
+  --type-hero-display-size:    56px;
+  --type-hero-display-lh:      1.07;
+  --type-hero-display-track:   -0.02em;   /* Inter needs ~ -0.01em extra vs SF */
+
+  --type-display-lg-size:      40px;
+  --type-display-lg-lh:        1.10;
+  --type-display-lg-track:     -0.015em;
+
+  --type-display-md-size:      34px;
+  --type-display-md-lh:        1.20;
+  --type-display-md-track:     -0.015em;
+
+  --type-lead-size:            28px;
+  --type-lead-lh:              1.18;
+  --type-lead-track:           0.005em;
+
+  --type-lead-airy-size:       24px;
+  --type-lead-airy-lh:         1.5;
+  --type-lead-airy-track:      0;
+
+  --type-tagline-size:         21px;
+  --type-tagline-lh:           1.19;
+  --type-tagline-track:        0.005em;
+
+  --type-body-size:            17px;     /* not 16 — the brand reading pace */
+  --type-body-lh:              1.44;     /* Inter needs ~0.03 tighter than SF */
+  --type-body-track:           -0.012em;
+
+  --type-dense-link-lh:        2.41;     /* footer link columns */
+
+  --type-caption-size:         14px;
+  --type-caption-lh:           1.29;
+  --type-caption-track:        -0.01em;
+
+  --type-button-large-size:    18px;
+  --type-button-large-wt:      300;       /* rare weight 300 */
+  --type-fine-size:            12px;
+  --type-micro-size:           10px;
+  --type-nav-size:             12px;
+
+  /* Weight ladder: 300 / 400 / 600 / 700 — 500 deliberately absent. */
+  --weight-light:    300;
+  --weight-regular:  400;
+  --weight-strong:   600;
+  --weight-bold:     700;
+
+  /* ---------- SPACING ---------- */
+  --space-xxs: 4px;
+  --space-xs:  8px;
+  --space-sm:  12px;
+  --space-md:  17px;
+  --space-lg:  24px;
+  --space-xl:  32px;
+  --space-xxl: 48px;
+  --space-section: 80px;
+
+  /* ---------- RADIUS ---------- */
+  --radius-none:  0px;
+  --radius-xs:    5px;
+  --radius-sm:    8px;
+  --radius-md:    11px;
+  --radius-lg:    18px;
+  --radius-pill:  9999px;
+
+  /* ---------- ELEVATION ---------- */
+  /* The ONE shadow in the system. Reserved for product photography. */
+  --shadow-product: 3px 5px 30px 0 rgba(0, 0, 0, 0.22);
+  --hairline-soft:  inset 0 0 0 1px rgba(0, 0, 0, 0.04);
+
+  /* ---------- MOTION ---------- */
+  --press-scale: scale(0.95);          /* universal active-state */
+  --ease-out:    cubic-bezier(0.22, 0.61, 0.36, 1);
+  --dur-fast:    140ms;
+  --dur-base:    220ms;
+}
+
+/* ============================================================
+   SEMANTIC ELEMENT STYLES
+   Apply these by class or via the resets below.
+   ============================================================ */
+
+html, body {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-text);
+  font-size: var(--type-body-size);
+  line-height: var(--type-body-lh);
+  letter-spacing: var(--type-body-track);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.t-hero,
+h1.t-hero {
+  font-family: var(--font-display);
+  font-size: var(--type-hero-display-size);
+  font-weight: var(--weight-strong);
+  line-height: var(--type-hero-display-lh);
+  letter-spacing: var(--type-hero-display-track);
+  color: var(--color-ink);
+  margin: 0;
+}
+
+.t-display-lg,
+h2.t-display-lg {
+  font-family: var(--font-display);
+  font-size: var(--type-display-lg-size);
+  font-weight: var(--weight-strong);
+  line-height: var(--type-display-lg-lh);
+  letter-spacing: var(--type-display-lg-track);
+  margin: 0;
+}
+
+.t-display-md {
+  font-family: var(--font-display);
+  font-size: var(--type-display-md-size);
+  font-weight: var(--weight-strong);
+  line-height: var(--type-display-md-lh);
+  letter-spacing: var(--type-display-md-track);
+  margin: 0;
+}
+
+.t-lead {
+  font-family: var(--font-text);
+  font-size: var(--type-lead-size);
+  font-weight: var(--weight-regular);
+  line-height: var(--type-lead-lh);
+  letter-spacing: var(--type-lead-track);
+  margin: 0;
+}
+
+.t-lead-airy {
+  font-family: var(--font-text);
+  font-size: var(--type-lead-airy-size);
+  font-weight: var(--weight-light);          /* 300 */
+  line-height: var(--type-lead-airy-lh);
+  margin: 0;
+}
+
+.t-tagline {
+  font-family: var(--font-text);
+  font-size: var(--type-tagline-size);
+  font-weight: var(--weight-strong);
+  line-height: var(--type-tagline-lh);
+  letter-spacing: var(--type-tagline-track);
+  margin: 0;
+}
+
+.t-body, p.t-body {
+  font-family: var(--font-text);
+  font-size: var(--type-body-size);
+  font-weight: var(--weight-regular);
+  line-height: var(--type-body-lh);
+  letter-spacing: var(--type-body-track);
+  margin: 0;
+}
+
+.t-body-strong {
+  font-family: var(--font-text);
+  font-size: var(--type-body-size);
+  font-weight: var(--weight-strong);
+  line-height: 1.24;
+  letter-spacing: var(--type-body-track);
+}
+
+.t-caption {
+  font-family: var(--font-text);
+  font-size: var(--type-caption-size);
+  font-weight: var(--weight-regular);
+  line-height: var(--type-caption-lh);
+  letter-spacing: var(--type-caption-track);
+}
+
+.t-caption-strong {
+  font-family: var(--font-text);
+  font-size: var(--type-caption-size);
+  font-weight: var(--weight-strong);
+  line-height: var(--type-caption-lh);
+  letter-spacing: var(--type-caption-track);
+}
+
+.t-fine {
+  font-family: var(--font-text);
+  font-size: var(--type-fine-size);
+  font-weight: var(--weight-regular);
+  letter-spacing: -0.01em;
+  color: var(--color-ink-muted-48);
+}
+
+.t-micro {
+  font-family: var(--font-text);
+  font-size: var(--type-micro-size);
+  font-weight: var(--weight-regular);
+  letter-spacing: -0.008em;
+  color: var(--color-ink-muted-48);
+}
+
+.t-nav {
+  font-family: var(--font-text);
+  font-size: var(--type-nav-size);
+  font-weight: var(--weight-regular);
+  letter-spacing: -0.01em;
+}
+
+.t-link {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: opacity var(--dur-fast) var(--ease-out);
+}
+.t-link:hover { text-decoration: underline; }
+
+.on-dark .t-link, a.t-link-on-dark {
+  color: var(--color-primary-on-dark);
+}
+
+/* ============================================================
+   BUTTON GRAMMARS
+   Two pill CTAs (primary + ghost), one utility rect, one capsule.
+   ============================================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 0;
+  cursor: pointer;
+  font-family: var(--font-text);
+  transition: transform var(--dur-fast) var(--ease-out),
+              background-color var(--dur-fast) var(--ease-out),
+              opacity var(--dur-fast) var(--ease-out);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.btn:active { transform: var(--press-scale); }
+.btn:focus-visible {
+  outline: 2px solid var(--color-primary-focus);
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  font-size: 17px;
+  font-weight: var(--weight-regular);
+  border-radius: var(--radius-pill);
+  padding: 11px 22px;
+}
+
+.btn-ghost-pill {
+  background: transparent;
+  color: var(--color-primary);
+  font-size: 17px;
+  font-weight: var(--weight-regular);
+  border-radius: var(--radius-pill);
+  padding: 10px 21px;
+  box-shadow: inset 0 0 0 1px var(--color-primary);
+}
+
+.btn-dark-utility {
+  background: var(--color-ink);
+  color: #fff;
+  font-size: 14px;
+  font-weight: var(--weight-regular);
+  letter-spacing: -0.01em;
+  border-radius: var(--radius-sm);
+  padding: 8px 15px;
+}
+
+.btn-pearl {
+  background: var(--color-surface-pearl);
+  color: var(--color-ink-muted-80);
+  font-size: 14px;
+  font-weight: var(--weight-regular);
+  border-radius: var(--radius-md);
+  padding: 8px 14px;
+  box-shadow: inset 0 0 0 3px var(--color-divider-soft);
+}
+
+.btn-store-hero {
+  background: var(--color-primary);
+  color: #fff;
+  font-size: var(--type-button-large-size);
+  font-weight: var(--type-button-large-wt);
+  border-radius: var(--radius-pill);
+  padding: 14px 28px;
+}
+
+.btn-icon-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(210, 210, 215, 0.64);
+  color: var(--color-ink);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ============================================================
+   SURFACES & TILES
+   ============================================================ */
+
+.surface-light      { background: var(--color-canvas); color: var(--color-ink); }
+.surface-parchment  { background: var(--color-canvas-parchment); color: var(--color-ink); }
+.surface-dark       { background: var(--color-surface-tile-1); color: var(--color-body-on-dark); }
+.surface-dark-2     { background: var(--color-surface-tile-2); color: var(--color-body-on-dark); }
+.surface-dark-3     { background: var(--color-surface-tile-3); color: var(--color-body-on-dark); }
+.surface-black      { background: var(--color-surface-black); color: #fff; }
+
+.tile {
+  padding: var(--space-section) var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.tile-stack > * + * { margin-top: 16px; }
+.tile-cta-row { display: flex; gap: 24px; margin-top: 8px; }
+
+/* ============================================================
+   CARDS
+   ============================================================ */
+
+.card-utility {
+  background: var(--color-canvas);
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+}
+
+.card-utility .product-img {
+  border-radius: var(--radius-sm);
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background: var(--color-canvas-parchment);
+}
+
+/* ============================================================
+   FORMS
+   ============================================================ */
+
+.input-pill {
+  appearance: none;
+  background: var(--color-canvas);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius-pill);
+  height: 44px;
+  padding: 0 20px;
+  font-family: var(--font-text);
+  font-size: 17px;
+  letter-spacing: var(--type-body-track);
+  color: var(--color-ink);
+}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+
+.global-nav {
+  background: var(--color-surface-black);
+  color: #fff;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  padding: 0 22px;
+  gap: 24px;
+  font-size: var(--type-nav-size);
+  letter-spacing: -0.01em;
+}
+
+.sub-nav {
+  background: rgba(246, 243, 238, 0.8);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 22px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+/* Product photography elevation — the only shadow in the system */
+.product-shadow { box-shadow: var(--shadow-product); }
