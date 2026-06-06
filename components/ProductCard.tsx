@@ -6,7 +6,7 @@ export function ProductCard({ p }: { p: Product }) {
     <article className="product-card">
       <div className="photo">
         <span className={p.amber ? "tag amber" : "tag"}>{p.tag}</span>
-        <ImageSlot placeholder={p.placeholder} />
+        <ImageSlot placeholder={p.placeholder} src={p.image} alt={p.nameEn} />
       </div>
       <div className="info">
         <h3 className="name-th">{p.nameTh}</h3>

@@ -198,7 +198,11 @@ export function Cafe() {
                 <li>
                   <div className="label">ติดตามเรา · Follow</div>
                   <div className="value">
-                    <a href="#">
+                    <a
+                      href="https://line.me/ti/p/%40manachai"
+                      target="_blank"
+                      rel="noopener"
+                    >
                       <strong>LINE @manachai</strong>
                     </a>
                     <br />

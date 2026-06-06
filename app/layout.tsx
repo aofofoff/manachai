@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import "@/styles/colors_and_type.css";
 import "@/styles/styles.css";
 
@@ -15,7 +16,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="th">
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }

@@ -41,7 +41,9 @@ export function TopNav({
       <div className="nav-end">
         <a href="tel:0626549893">062-654-9893</a>
         <span aria-hidden="true">·</span>
-        <a href="#">LINE @manachai</a>
+        <a href="https://line.me/ti/p/%40manachai" target="_blank" rel="noopener">
+          LINE @manachai
+        </a>
       </div>
     </nav>
   );

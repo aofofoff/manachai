@@ -41,7 +41,11 @@ export function NutShop() {
 
             <div className="hero-photo">
               <span className="hero-badge">Super Jumbo · Limited</span>
-              <ImageSlot placeholder="วางภาพคาชิวที่นี่ · Drop hero photo" />
+              <ImageSlot
+                placeholder="วางภาพคาชิวที่นี่ · Drop hero photo"
+                src="/images/hero.JPG"
+                alt="เม็ดมะม่วงหิมพานต์มานะชัย · Manachai cashews"
+              />
             </div>
           </div>
 
@@ -112,7 +116,11 @@ export function NutShop() {
             </a>
           </div>
           <div className="promo-photo">
-            <ImageSlot placeholder="ภาพกระปุก Super Jumbo · Product hero" />
+            <ImageSlot
+              placeholder="ภาพกระปุก Super Jumbo · Product hero"
+              src="/images/cashew-roasted-shell.jpg"
+              alt="เม็ดมะม่วงหิมพานต์เผามีเปลือก Super Jumbo"
+            />
           </div>
         </div>
       </section>
@@ -136,7 +144,7 @@ export function NutShop() {
           {promoSets.map((s) => (
             <article className="promo-set-card" key={s.id}>
               <div className="set-photo">
-                <ImageSlot placeholder={s.placeholder} />
+                <ImageSlot placeholder={s.placeholder} src={s.image} alt={s.nameEn} />
                 <span className={s.badgeAmber ? "set-badge set-badge--amber" : "set-badge"}>
                   {s.badge}
                 </span>
@@ -286,7 +294,11 @@ export function NutShop() {
               </p>
             </div>
             <div className="heritage-photo">
-              <ImageSlot placeholder="ภาพร้านยุคแรก · Vintage shop photo" />
+              <ImageSlot
+                placeholder="ภาพร้านยุคแรก · Vintage shop photo"
+                src="/images/cashew-tree.jpg"
+                alt="ต้นกาหยู ระนอง · Cashew tree in Ranong"
+              />
             </div>
           </div>
         </div>
@@ -347,7 +359,11 @@ export function NutShop() {
                 <li>
                   <div className="label">ติดตามเรา · Follow</div>
                   <div className="value">
-                    <a href="#">
+                    <a
+                      href="https://line.me/ti/p/%40manachai"
+                      target="_blank"
+                      rel="noopener"
+                    >
                       <strong>LINE @manachai</strong>
                     </a>
                     <br />

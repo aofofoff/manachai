@@ -9,6 +9,7 @@ export type Product = {
   tag: string;
   amber?: boolean;
   placeholder: string;
+  image?: string;
   nameTh: string;
   nameEn: string;
   variants: [string, string];
@@ -20,6 +21,7 @@ export type PromoSet = {
   badge: string;
   badgeAmber?: boolean;
   placeholder: string;
+  image?: string;
   no: string;
   nameTh: string;
   nameEn: string;
@@ -51,6 +53,7 @@ export const roastedCashews: Product[] = [
     tag: "Best Seller",
     amber: true,
     placeholder: "เม็ดมะม่วงหิมพานต์อบเกลือ · Salted",
+    image: "/images/cashew-salted.jpg",
     nameTh: "เม็ดมะม่วงหิมพานต์อบเกลือ",
     nameEn: "Salted Roasted Cashew",
     variants: ["เนื้อเม็ดขาว", "Hand-roasted"],
@@ -64,6 +67,7 @@ export const roastedCashews: Product[] = [
     id: "p-butter",
     tag: "Signature",
     placeholder: "เม็ดมะม่วงหิมพานต์อบเนย · Butter",
+    image: "/images/cashew-butter.jpg",
     nameTh: "เม็ดมะม่วงหิมพานต์อบเนย",
     nameEn: "Butter Roasted Cashew",
     variants: ["หอมเนยกลมกล่อม", "Classic"],
@@ -78,6 +82,7 @@ export const roastedCashews: Product[] = [
     tag: "House Recipe",
     amber: true,
     placeholder: "เม็ดมะม่วงหิมพานต์คั่วข้าว · Rice-Roasted",
+    image: "/images/cashew-rice-roasted.jpg",
     nameTh: "เม็ดมะม่วงหิมพานต์คั่วข้าว",
     nameEn: "Rice-Roasted Cashew",
     variants: ["กลิ่นข้าวคั่ว", "Traditional craft"],
@@ -94,6 +99,7 @@ export const charcoalCashews: Product[] = [
     id: "p-roasted-shell",
     tag: "In Shell",
     placeholder: "คาชิวเผา มีเปลือก · In-shell",
+    image: "/images/cashew-roasted-shell.jpg",
     nameTh: "คาชิวเผา มีเปลือก",
     nameEn: "Charcoal-Roasted · In Shell",
     variants: ["แกะเอง สนุกกว่า", "Whole"],
@@ -107,6 +113,7 @@ export const charcoalCashews: Product[] = [
     id: "p-roasted-peeled",
     tag: "Shelled",
     placeholder: "คาชิวเผา แกะเปลือก · Shelled",
+    image: "/images/cashew-roasted-shelled.jpg",
     nameTh: "คาชิวเผา แกะเปลือก",
     nameEn: "Charcoal-Roasted · Shelled",
     variants: ["พร้อมทาน หอมเข้ม", "Ready"],
@@ -136,6 +143,7 @@ export const otherNuts: Product[] = [
     id: "p-almond",
     tag: "USA",
     placeholder: "อัลมอนด์ · Almond",
+    image: "/images/almond.JPG",
     nameTh: "อัลมอนด์ อเมริกา",
     nameEn: "American Almond · Salted / Unsalted",
     variants: ["อบเกลือ", "อบจืด"],
@@ -161,6 +169,7 @@ export const otherNuts: Product[] = [
     tag: "AUS",
     amber: true,
     placeholder: "แมคคาเดเมีย · Macadamia",
+    image: "/images/macadamia.jpg",
     nameTh: "แมคคาเดเมีย ออสเตรเลีย",
     nameEn: "Australian Macadamia · Salted / Unsalted",
     variants: ["บรรจุกระปุก", "Premium grade"],
@@ -206,6 +215,7 @@ export const promoSets: PromoSet[] = [
     id: "set-gift",
     badge: "ของฝาก · Gift",
     placeholder: "ภาพเซ็ตของฝาก · Gift set photo",
+    image: "/images/set-gift.jpg",
     no: "เซ็ตที่ 1",
     nameTh: "เซ็ตของฝากระนอง",
     nameEn: "Ranong Gift Set",
@@ -223,6 +233,7 @@ export const promoSets: PromoSet[] = [
     badge: "Premium",
     badgeAmber: true,
     placeholder: "ภาพเซ็ตถั่วรวม · Mixed nut set",
+    image: "/images/set-mixed.jpg",
     no: "เซ็ตที่ 2",
     nameTh: "เซ็ตถั่วรวมพรีเมียม",
     nameEn: "Premium Mixed Nut Set",
