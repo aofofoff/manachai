@@ -1,7 +1,5 @@
-// Photo placeholder. Shows the `placeholder` label until a real photo is
-// supplied via `src` — drop one in later with:
-//   <ImageSlot src="/assets/your-photo.jpg" alt="..." />
-// Renders the <image-slot> element the design-system CSS already styles.
+import Image from "next/image";
+
 export function ImageSlot({
   placeholder,
   src,
@@ -14,8 +12,13 @@ export function ImageSlot({
   return (
     <image-slot>
       {src ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img src={src} alt={alt} />
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw"
+          style={{ objectFit: "cover" }}
+        />
       ) : (
         <span className="is-ph">{placeholder}</span>
       )}

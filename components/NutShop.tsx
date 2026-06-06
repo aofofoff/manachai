@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {
   roastedCashews,
   charcoalCashews,
@@ -323,8 +324,7 @@ export function NutShop() {
           <div className="contact-cards">
             <article className="contact-shop" data-shop="nuts">
               <div className="contact-shop-head">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/assets/logo-manachai.jpg" alt="" className="shop-mark" />
+                <Image src="/assets/logo-manachai.jpg" alt="" width={56} height={56} className="shop-mark" />
                 <div>
                   <div className="shop-name-th">มานะชัย · กาหยู ระนอง</div>
                   <div className="shop-name-en">Manachai Cashews · The Shop</div>

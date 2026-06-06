@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 type Tab = "nuts" | "cafe";
 
 export function TopNav({
@@ -10,8 +12,7 @@ export function TopNav({
   return (
     <nav className="top-nav">
       <div className="brand-mark">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/assets/logo-manachai.jpg" alt="Manachai" className="brand-logo" />
+        <Image src="/assets/logo-manachai.jpg" alt="Manachai" width={34} height={34} className="brand-logo" />
         <span>มานะชัย · MANACHAI · est 2524</span>
       </div>
 

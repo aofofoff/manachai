@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { menu, menuTabs, type MenuKey } from "@/lib/content";
 import { ImageSlot } from "./ImageSlot";
 
@@ -16,8 +17,7 @@ export function Cafe() {
             <div>
               <div className="eyebrow">คาเฟ่ของบ้านมานะชัย · Our Sister Cafe</div>
               <div className="cafe-logo-mark">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/assets/logo-manasan.jpg" alt="Cafe mana·san — Gelato & Pastry" />
+                <Image src="/assets/logo-manasan.jpg" alt="Cafe mana·san — Gelato & Pastry" width={168} height={168} />
               </div>
               <h1>
                 มานะซัง
@@ -160,8 +160,7 @@ export function Cafe() {
           <div className="contact-cards">
             <article className="contact-shop" data-shop="cafe">
               <div className="contact-shop-head">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/assets/logo-manasan.jpg" alt="" className="shop-mark" />
+                <Image src="/assets/logo-manasan.jpg" alt="" width={56} height={56} className="shop-mark" />
                 <div>
                   <div className="shop-name-th">มานะซัง · Cafe mana·san</div>
                   <div className="shop-name-en">Gelato &amp; Pastry</div>

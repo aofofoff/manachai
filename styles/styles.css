@@ -1440,6 +1440,7 @@ image-slot {
   --is-placeholder-color: rgba(0, 0, 0, 0.32);
   --is-placeholder-size: 12px;
   --is-placeholder-letter-spacing: 0.12em;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
