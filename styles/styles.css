@@ -1421,10 +1421,22 @@ body[data-density="airy"] .signature { padding: 88px 72px; margin-top: 96px; mar
   .section-header { flex-direction: column; align-items: flex-start; }
   .section-header .lede { text-align: left; }
   .heritage-year { font-size: 72px; }
+  /* Collapse nav to logo + tabs only; phone/LINE remain in contact + footer */
+  .top-nav { grid-template-columns: auto 1fr; }
+  .brand-mark span { display: none; }
+  .nav-end { display: none; }
+  .tabs { justify-self: center; }
 }
 @media (max-width: 600px) {
-  .top-nav { padding: 0 16px; gap: 12px; }
-  .nav-end { display: none; }
+  .top-nav { padding: 0 14px; gap: 10px; }
+  .tab {
+    flex-direction: column;
+    gap: 1px;
+    padding: 6px 14px;
+    line-height: 1.2;
+    text-align: center;
+  }
+  .tab .en { font-size: 10px; }
   .container { padding: 0 18px; }
   .product-grid { grid-template-columns: 1fr; }
   .hero-meta-strip { grid-template-columns: 1fr; gap: 18px; }
