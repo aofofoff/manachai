@@ -233,7 +233,7 @@ export function Cafe() {
           <div className="footer-grid">
             <div className="brand">© Cafe mana·san · A Manachai family project · Ranong</div>
             <div className="footer-links">
-              <a href="#">หน้าแรก</a>
+              <a href="/">หน้าแรก</a>
               <a href="#menu">เมนู</a>
               <a href="#visit">มาเยือน</a>
             </div>

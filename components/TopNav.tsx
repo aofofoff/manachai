@@ -1,42 +1,45 @@
+"use client";
+
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-type Tab = "nuts" | "cafe";
+export function TopNav() {
+  const pathname = usePathname();
+  const onCafe = pathname.startsWith("/cafe");
 
-export function TopNav({
-  active,
-  onTab,
-}: {
-  active: Tab;
-  onTab: (t: Tab) => void;
-}) {
   return (
     <nav className="top-nav">
       <div className="brand-mark">
-        <Image src="/assets/logo-manachai.jpg" alt="Manachai" width={34} height={34} className="brand-logo" />
+        <Image
+          src="/assets/logo-manachai.jpg"
+          alt="Manachai"
+          width={34}
+          height={34}
+          className="brand-logo"
+        />
         <span>มานะชัย · MANACHAI · est 2524</span>
       </div>
 
       <div className="tabs" role="tablist" aria-label="หน้าร้าน">
-        <button
+        <Link
           className="tab"
           role="tab"
-          data-tab="nuts"
-          aria-selected={active === "nuts"}
-          onClick={() => onTab("nuts")}
+          href="/"
+          aria-selected={!onCafe}
         >
           <span className="th">🥜 มานะชัย</span>
           <span className="en">Cashew Shop</span>
-        </button>
-        <button
+        </Link>
+        <Link
           className="tab"
           role="tab"
-          data-tab="cafe"
-          aria-selected={active === "cafe"}
-          onClick={() => onTab("cafe")}
+          href="/cafe"
+          aria-selected={onCafe}
         >
           <span className="th">☕</span>
           <span className="en">Cafe mana·san</span>
-        </button>
+        </Link>
       </div>
 
       <div className="nav-end">

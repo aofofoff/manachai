@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
+import { TopNav } from "@/components/TopNav";
 import "@/styles/colors_and_type.css";
 import "@/styles/styles.css";
 
@@ -59,86 +60,6 @@ export const metadata: Metadata = {
   },
 };
 
-const shopJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Store",
-  name: "มานะชัย · Manachai Cashews",
-  alternateName: "Manachai Cashews",
-  description:
-    "เม็ดมะม่วงหิมพานต์คั่วสด จากระนอง ตั้งแต่ปี 2524 · Hand-roasted Thai cashews from Ranong since 1981",
-  url: siteUrl,
-  telephone: "+66626549893",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "145/2 Moo 4, Phetkasem Rd",
-    addressLocality: "Mueang Ranong",
-    addressRegion: "Ranong",
-    postalCode: "85000",
-    addressCountry: "TH",
-  },
-  openingHoursSpecification: [
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-        "Sunday",
-      ],
-      opens: "08:00",
-      closes: "18:00",
-    },
-  ],
-  sameAs: [
-    "https://line.me/ti/p/%40manachai",
-    "https://facebook.com/manachaicashews",
-  ],
-  image: `${siteUrl}/images/hero.JPG`,
-  hasMap: "https://maps.app.goo.gl/6LSfvmXinM7KiAMb7",
-};
-
-const cafeJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "CafeOrCoffeeShop",
-  name: "Cafe mana·san · มานะซัง",
-  alternateName: "มานะซัง",
-  description:
-    "คาเฟ่เจลาโต้และเพสตรี้สูตรเฉพาะของบ้านมานะชัย · Gelato & pastry cafe next to Manachai Cashews, Ranong",
-  url: siteUrl,
-  telephone: "+66626549893",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "Phetkasem Rd",
-    addressLocality: "Mueang Ranong",
-    addressRegion: "Ranong",
-    postalCode: "85000",
-    addressCountry: "TH",
-  },
-  openingHoursSpecification: [
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Sunday"],
-      opens: "08:00",
-      closes: "18:00",
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Friday", "Saturday"],
-      opens: "08:00",
-      closes: "19:00",
-    },
-  ],
-  servesCuisine: ["Gelato", "Pastry", "Coffee"],
-  sameAs: [
-    "https://line.me/ti/p/%40manachai",
-    "https://facebook.com/manachaicashews",
-  ],
-  hasMap: "https://maps.app.goo.gl/6LSfvmXinM7KiAMb7",
-};
-
 export default function RootLayout({
   children,
 }: {
@@ -147,14 +68,7 @@ export default function RootLayout({
   return (
     <html lang="th">
       <body>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(shopJsonLd) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(cafeJsonLd) }}
-        />
+        <TopNav />
         {children}
         <Analytics />
       </body>
