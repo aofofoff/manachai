@@ -386,6 +386,37 @@ export function NutShop() {
                 เปิดใน Google Maps →
               </a>
             </article>
+
+            <article className="contact-cert">
+              <div className="cert-head">
+                <div className="cert-title-th">มาตรฐานการผลิต · Certified Quality</div>
+                <div className="cert-title-en">
+                  Ranong Smart Auto Co., Ltd. · โรงงานมานะชัย
+                </div>
+              </div>
+              <a
+                className="cert-thumb"
+                href="/images/certificate.jpg"
+                target="_blank"
+                rel="noopener"
+                aria-label="เปิดดูใบรับรองเต็ม · View full certificate"
+              >
+                <Image
+                  src="/images/certificate.jpg"
+                  alt="ใบรับรองมาตรฐานและข้อมูลโรงงานมานะชัย · Manachai factory profile and certification"
+                  width={1074}
+                  height={1524}
+                  sizes="(max-width: 600px) 90vw, 320px"
+                />
+                <span className="cert-zoom">ดูใบรับรองเต็ม · View full →</span>
+              </a>
+              <p className="cert-note">
+                โรงงานผลิตกว่า 45 ปี · กำลังผลิต 36,000 กก./ปี · รับรองมาตรฐาน อย. และ OTOP
+                <span className="en">
+                  Over 45 years · 36,000 kg/year capacity · Thai FDA &amp; OTOP certified
+                </span>
+              </p>
+            </article>
           </div>
         </div>
       </section>
