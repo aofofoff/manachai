@@ -33,6 +33,7 @@ export type PromoSet = {
 export type ShrimpPaste = {
   id: string;
   placeholder: string;
+  image?: string;
   nameTh: string;
   nameEn: string;
   size: string;
@@ -156,6 +157,7 @@ export const otherNuts: Product[] = [
     id: "p-pumpkin",
     tag: "Thai",
     placeholder: "เม็ดฟักทอง · Pumpkin Seed",
+    image: "/images/pumpkin-seed.jpg",
     nameTh: "เม็ดฟักทองอบ",
     nameEn: "Roasted Pumpkin Seed · Salted / Unsalted",
     variants: ["อบเกลือ", "อบจืด"],
@@ -179,6 +181,7 @@ export const otherNuts: Product[] = [
     id: "p-pistachio",
     tag: "USA",
     placeholder: "พิตาชิโอ · Pistachio",
+    image: "/images/pistachio.jpg",
     nameTh: "พิตาชิโอ มีเปลือก",
     nameEn: "In-Shell Pistachio · Salted / Unsalted",
     variants: ["อเมริกา", "อบเกลือ / อบจืด"],
@@ -193,6 +196,7 @@ export const shrimpPastes: ShrimpPaste[] = [
   {
     id: "p-shrimp-pure",
     placeholder: "กะปิเคยล้วน",
+    image: "/images/shrimp-paste-pure.jpg",
     nameTh: "กะปิเคยล้วน",
     nameEn: "Pure Shrimp Paste",
     size: "500g",
@@ -202,6 +206,7 @@ export const shrimpPastes: ShrimpPaste[] = [
   {
     id: "p-shrimp-sweet",
     placeholder: "กะปิหวาน",
+    image: "/images/shrimp-paste-sweet.jpg",
     nameTh: "กะปิหวาน",
     nameEn: "Sweet Shrimp Paste",
     size: "500g",

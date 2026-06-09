@@ -283,7 +283,7 @@ export function NutShop() {
           {shrimpPastes.map((s) => (
             <div className="shrimp-card" key={s.id}>
               <div className="photo">
-                <ImageSlot placeholder={s.placeholder} />
+                <ImageSlot placeholder={s.placeholder} src={s.image} alt={s.nameEn} />
               </div>
               <div>
                 <h3 className="name-th">{s.nameTh}</h3>
