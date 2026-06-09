@@ -52,7 +52,7 @@ export function NutShop() {
             <div className="hero-photo">
               <span className="hero-badge">Super Jumbo · Limited</span>
               <ImageSlot
-                placeholder="วางภาพคาชิวที่นี่ · Drop hero photo"
+                placeholder="วางภาพเม็ดมะม่วงหิมพานต์ที่นี่ · Drop hero photo"
                 src="/images/hero.JPG"
                 alt="เม็ดมะม่วงหิมพานต์มานะชัย · Manachai cashews"
               />
@@ -224,7 +224,7 @@ export function NutShop() {
 
         <div className="product-grid">
           <div className="subcategory-head">
-            <h3>คาชิวคั่ว · Roasted Cashews</h3>
+            <h3>เม็ดมะม่วงหิมพานต์คั่ว · Roasted Cashews</h3>
             <span className="en">3 flavours · 3 sizes</span>
           </div>
           {roastedCashews.map((p) => (

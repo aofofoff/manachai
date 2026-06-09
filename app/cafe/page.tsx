@@ -7,7 +7,7 @@ const siteUrl =
 export const metadata: Metadata = {
   title: "มานะซัง คาเฟ่ · Cafe mana·san",
   description:
-    "คาเฟ่เจลาโต้และเพสตรี้สูตรเฉพาะของบ้านมานะชัย เจลาโต้คาชิวคั่วใหม่ทุกเช้า · Gelato & pastry cafe in Ranong, next to Manachai Cashews.",
+    "คาเฟ่เจลาโต้และเพสตรี้สูตรเฉพาะของบ้านมานะชัย เจลาโต้เม็ดมะม่วงหิมพานต์คั่วใหม่ทุกเช้า · Gelato & pastry cafe in Ranong, next to Manachai Cashews.",
   openGraph: {
     title: "มานะซัง คาเฟ่ · Cafe mana·san — Gelato & Pastry",
     description:

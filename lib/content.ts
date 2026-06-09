@@ -98,9 +98,9 @@ export const charcoalCashews: Product[] = [
   {
     id: "p-roasted-shell",
     tag: "In Shell",
-    placeholder: "คาชิวเผา มีเปลือก · In-shell",
+    placeholder: "เม็ดมะม่วงหิมพานต์เผา มีเปลือก · In-shell",
     image: "/images/cashew-roasted-shell.jpg",
-    nameTh: "คาชิวเผา มีเปลือก",
+    nameTh: "เม็ดมะม่วงหิมพานต์เผา มีเปลือก",
     nameEn: "Charcoal-Roasted · In Shell",
     variants: ["แกะเอง สนุกกว่า", "Whole"],
     prices: [
@@ -112,9 +112,9 @@ export const charcoalCashews: Product[] = [
   {
     id: "p-roasted-peeled",
     tag: "Shelled",
-    placeholder: "คาชิวเผา แกะเปลือก · Shelled",
+    placeholder: "เม็ดมะม่วงหิมพานต์เผา แกะเปลือก · Shelled",
     image: "/images/cashew-roasted-shelled.jpg",
-    nameTh: "คาชิวเผา แกะเปลือก",
+    nameTh: "เม็ดมะม่วงหิมพานต์เผา แกะเปลือก",
     nameEn: "Charcoal-Roasted · Shelled",
     variants: ["พร้อมทาน หอมเข้ม", "Ready"],
     prices: [
@@ -258,7 +258,7 @@ export const menuTabs: { key: MenuKey; th: string; en: string }[] = [
 
 export const menu: Record<MenuKey, MenuItem[]> = {
   gelato: [
-    { star: true, name: "Cashew Gelato", en: "Signature · Roasted Cashew", desc: "ซิกเนเจอร์ของร้าน เจลาโต้คาชิวคั่วเอง หอมเข้มข้น" },
+    { star: true, name: "Cashew Gelato", en: "Signature · Roasted Cashew", desc: "ซิกเนเจอร์ของร้าน เจลาโต้เม็ดมะม่วงหิมพานต์คั่วเอง หอมเข้มข้น" },
     { name: "วานิลลา มาดากัสการ์", en: "Madagascar Vanilla", desc: "วานิลลาเกรดพรีเมียม กลิ่นหอมเด่นชัด" },
     { name: "ดาร์ก ช็อกโกแลต", en: "Dark Chocolate · 70%", desc: "โกโก้เข้มข้น 70% สำหรับคนชอบช็อกโกแลตแท้" },
     { name: "พิตาชิโอ", en: "Pistachio", desc: "พิตาชิโอบดละเอียด หวานน้อยตามตำรับอิตาลี" },
@@ -268,17 +268,17 @@ export const menu: Record<MenuKey, MenuItem[]> = {
     { name: "มะม่วง", en: "Mango Sorbet · Seasonal", desc: "มะม่วงน้ำดอกไม้ตามฤดูกาล" },
   ],
   pastry: [
-    { star: true, name: "โทสต์คาชิวบัตเตอร์", en: "Cashew-Butter Toast · Signature", desc: "ขนมปังย่างเนย คาชิวบัตเตอร์โฮมเมด น้ำผึ้งระนอง" },
+    { star: true, name: "โทสต์เม็ดมะม่วงหิมพานต์บัตเตอร์", en: "Cashew-Butter Toast · Signature", desc: "ขนมปังย่างเนย เม็ดมะม่วงหิมพานต์บัตเตอร์โฮมเมด น้ำผึ้งระนอง" },
     { name: "ครัวซองต์เนยฝรั่งเศส", en: "Butter Croissant", desc: "เนยฝรั่งเศสแท้ อบสดทุกเช้า" },
     { name: "เปนโอช็อก", en: "Pain au Chocolat", desc: "ครัวซองต์ไส้ช็อกโกแลตเข้มข้น" },
-    { name: "บราวนี่คาชิว", en: "Cashew Brownie", desc: "ช็อกโกแลตเข้ม ท็อปคาชิวคั่วเกลือ" },
+    { name: "บราวนี่เม็ดมะม่วงหิมพานต์", en: "Cashew Brownie", desc: "ช็อกโกแลตเข้ม ท็อปเม็ดมะม่วงหิมพานต์คั่วเกลือ" },
     { name: "ชีสเค้กหน้าไหม้", en: "Burnt Basque Cheesecake", desc: "หน้าไหม้คลาสสิก ครีมเนียนละมุน" },
-    { name: "คุกกี้คาชิว", en: "Cashew Cookies", desc: "อบสดทุกเช้า กรอบนอกนุ่มใน" },
+    { name: "คุกกี้เม็ดมะม่วงหิมพานต์", en: "Cashew Cookies", desc: "อบสดทุกเช้า กรอบนอกนุ่มใน" },
     { name: "ทาร์ตผลไม้", en: "Seasonal Fruit Tart", desc: "คัสตาร์ดวานิลลา ผลไม้สดประจำฤดู" },
     { name: "มาดเดอลีน", en: "Madeleine · Honey & Lemon", desc: "อบในแม่พิมพ์เปลือกหอย หอมเลม่อน" },
   ],
   drinks: [
-    { star: true, name: "คาชิวลาเต้", en: "Cashew Latte · Signature", desc: "ลาเต้กลิ่นคาชิวคั่ว สูตรของมานะซัง" },
+    { star: true, name: "เม็ดมะม่วงหิมพานต์ลาเต้", en: "Cashew Latte · Signature", desc: "ลาเต้กลิ่นเม็ดมะม่วงหิมพานต์คั่ว สูตรของมานะซัง" },
     { name: "เอสเปรสโซ่", en: "Espresso · Single / Double", desc: "เมล็ดกาแฟ specialty คั่วในไทย" },
     { name: "อเมริกาโน่", en: "Americano · Hot / Iced", desc: "ช็อตคู่ ผสมน้ำกรอง ดื่มง่ายทุกเวลา" },
     { name: "ลาเต้", en: "Latte · Hot / Iced", desc: "นมสตีมเนียนละมุน หอมกาแฟกำลังดี" },
