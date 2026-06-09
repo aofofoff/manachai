@@ -80,7 +80,11 @@ body {
   gap: 8px;
 }
 .tab:hover { color: #fff; }
-.tab[aria-selected="true"] {
+.tab:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+.tab[aria-current="page"] {
   background: #fff;
   color: var(--color-ink);
   font-weight: var(--weight-strong);
@@ -91,7 +95,7 @@ body {
   opacity: 0.65;
   letter-spacing: 0.02em;
 }
-.tab[aria-selected="true"] .en { opacity: 0.55; }
+.tab[aria-current="page"] .en { opacity: 0.55; }
 
 .nav-end {
   display: flex;
@@ -110,6 +114,11 @@ body {
   gap: 6px;
 }
 .nav-end a:hover { color: #fff; }
+.nav-end a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+  border-radius: 3px;
+}
 
 /* ------------------------------------------------------------
    PAGE CONTAINERS — fade between tabs
@@ -977,7 +986,7 @@ body {
 }
 .contact-cert .cert-title-en {
   font-size: 12px;
-  color: var(--color-body-muted);
+  color: var(--color-ink-muted-48);
   margin-top: 4px;
 }
 .cert-thumb {
@@ -1000,6 +1009,10 @@ body {
 .cert-thumb:hover {
   transform: translateY(-3px);
 }
+.cert-thumb:focus-visible {
+  outline: 2px solid var(--color-primary-focus);
+  outline-offset: 3px;
+}
 .cert-thumb .cert-zoom {
   position: absolute;
   inset-inline: 0;
@@ -1017,7 +1030,7 @@ body {
   max-width: 420px;
   font-size: 13px;
   line-height: 1.6;
-  color: var(--color-body-muted);
+  color: var(--color-ink-muted-80);
 }
 .cert-note .en {
   display: block;

@@ -35,14 +35,6 @@ export const metadata: Metadata = {
       "เม็ดมะม่วงหิมพานต์คั่วสด จากระนอง ตั้งแต่ปี 2524 · Hand-roasted Thai cashews from Ranong since 1981.",
     url: siteUrl,
     siteName: "Manachai Cashews",
-    images: [
-      {
-        url: "/images/hero.JPG",
-        width: 1200,
-        height: 630,
-        alt: "มานะชัย เม็ดมะม่วงหิมพานต์ · Manachai Cashews — Ranong, Thailand",
-      },
-    ],
     locale: "th_TH",
     type: "website",
   },
@@ -51,7 +43,6 @@ export const metadata: Metadata = {
     title: "มานะชัย · Manachai Cashews",
     description:
       "Hand-roasted Thai cashews from Ranong since 1981. Plus Cafe mana·san — gelato & pastry.",
-    images: ["/images/hero.JPG"],
   },
   robots: { index: true, follow: true },
   alternates: { canonical: siteUrl },

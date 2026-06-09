@@ -6,6 +6,7 @@ import {
   shrimpPastes,
   promoSets,
 } from "@/lib/content";
+import { lineOrderUrl } from "@/lib/line";
 import { ImageSlot } from "./ImageSlot";
 import { ProductCard } from "./ProductCard";
 
@@ -34,8 +35,16 @@ export function NutShop() {
                 <a className="btn btn-primary" href="#products">
                   ดูสินค้าทั้งหมด · Shop Cashews
                 </a>
-                <a className="btn btn-ghost-pill" href="#contact">
-                  ติดต่อสั่งซื้อ · Order Now
+                <a
+                  className="btn btn-ghost-pill"
+                  href={lineOrderUrl(
+                    "สวัสดีค่ะ สนใจสั่งซื้อเม็ดมะม่วงหิมพานต์มานะชัยค่ะ"
+                  )}
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="สั่งซื้อทางไลน์ · Order via LINE"
+                >
+                  สั่งซื้อทางไลน์ · Order on LINE
                 </a>
               </div>
             </div>
@@ -112,8 +121,16 @@ export function NutShop() {
                 </strong>
               </span>
             </div>
-            <a className="btn btn-store-hero" href="#contact">
-              สั่งซื้อ Super Jumbo →
+            <a
+              className="btn btn-store-hero"
+              href={lineOrderUrl(
+                "สนใจสั่งซื้อ เม็ดมะม่วงหิมพานต์เผามีเปลือก Super Jumbo ค่ะ"
+              )}
+              target="_blank"
+              rel="noopener"
+              aria-label="สั่งซื้อ Super Jumbo ทางไลน์ · Order Super Jumbo on LINE"
+            >
+              สั่งซื้อ Super Jumbo ทางไลน์ →
             </a>
           </div>
           <div className="promo-photo">
@@ -170,8 +187,16 @@ export function NutShop() {
                       <small>/เซ็ต</small>
                     </div>
                   </div>
-                  <a className="btn btn-primary" href="#contact">
-                    สั่งเซ็ตนี้ →
+                  <a
+                    className="btn btn-primary"
+                    href={lineOrderUrl(
+                      `สนใจสั่งซื้อ ${s.nameTh} (${s.nameEn}) ค่ะ`
+                    )}
+                    target="_blank"
+                    rel="noopener"
+                    aria-label={`สั่งซื้อ ${s.nameTh} ทางไลน์`}
+                  >
+                    สั่งเซ็ตนี้ทางไลน์ →
                   </a>
                 </div>
               </div>

@@ -9,7 +9,7 @@ export function TopNav() {
   const onCafe = pathname.startsWith("/cafe");
 
   return (
-    <nav className="top-nav">
+    <nav className="top-nav" aria-label="แถบนำทางหลัก · Main">
       <div className="brand-mark">
         <Image
           src="/assets/logo-manachai.jpg"
@@ -21,21 +21,19 @@ export function TopNav() {
         <span>มานะชัย · MANACHAI · est 2524</span>
       </div>
 
-      <div className="tabs" role="tablist" aria-label="หน้าร้าน">
+      <div className="tabs" role="group" aria-label="เลือกหน้าร้าน · Choose shop">
         <Link
           className="tab"
-          role="tab"
           href="/"
-          aria-selected={!onCafe}
+          aria-current={!onCafe ? "page" : undefined}
         >
           <span className="th">🥜 มานะชัย</span>
           <span className="en">Cashew Shop</span>
         </Link>
         <Link
           className="tab"
-          role="tab"
           href="/cafe"
-          aria-selected={onCafe}
+          aria-current={onCafe ? "page" : undefined}
         >
           <span className="th">☕</span>
           <span className="en">Cafe mana·san</span>
