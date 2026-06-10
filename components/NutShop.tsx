@@ -10,6 +10,7 @@ import { lineOrderUrl } from "@/lib/line";
 import { FACEBOOK_URL, GOOGLE_MAPS_URL } from "@/lib/links";
 import { ImageSlot } from "./ImageSlot";
 import { ProductCard } from "./ProductCard";
+import { Faq } from "./Faq";
 
 export function NutShop() {
   return (
@@ -331,6 +332,9 @@ export function NutShop() {
           </div>
         </div>
       </section>
+
+      {/* FAQ */}
+      <Faq />
 
       {/* CONTACT */}
       <section className="contact-block" id="contact">

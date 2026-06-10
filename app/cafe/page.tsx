@@ -69,7 +69,7 @@ const cafeJsonLd = {
 
 export default function CafePage() {
   return (
-    <main className="page" data-page="cafe" data-active="true">
+    <main className="page" data-page="cafe" data-active="true" id="main-content">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(cafeJsonLd) }}

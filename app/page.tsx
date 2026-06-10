@@ -6,6 +6,7 @@ import {
   shrimpPastes,
 } from "@/lib/content";
 import { FACEBOOK_URL, GOOGLE_MAPS_URL, GEO } from "@/lib/links";
+import { faqs } from "@/lib/faq";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://manachai.vercel.app";
@@ -61,6 +62,16 @@ const productJsonLd = {
   "@graph": [...cashewProducts, ...shrimpProducts],
 };
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
 const shopJsonLd = {
   "@context": "https://schema.org",
   "@type": "Store",
@@ -106,7 +117,7 @@ const shopJsonLd = {
 
 export default function Home() {
   return (
-    <main className="page" data-page="nuts" data-active="true">
+    <main className="page" data-page="nuts" data-active="true" id="main-content">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(shopJsonLd) }}
@@ -114,6 +125,10 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <NutShop />
     </main>
