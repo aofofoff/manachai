@@ -21,3 +21,6 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# Allow CLAUDE.md in this project only (it's ignored by the global gitignore)
+!CLAUDE.md
