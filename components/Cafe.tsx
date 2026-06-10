@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { menu, menuTabs, cafeGallery, type MenuKey } from "@/lib/content";
 import { FACEBOOK_URL, GOOGLE_MAPS_URL } from "@/lib/links";
+import { lineOrderUrl } from "@/lib/line";
 import { ImageSlot } from "./ImageSlot";
 
 export function Cafe() {
@@ -251,6 +252,17 @@ export function Cafe() {
               </ul>
               <a
                 className="btn btn-primary contact-map-btn"
+                href={lineOrderUrl(
+                  "สวัสดีค่ะ สนใจสอบถามเมนู/จองโต๊ะ/สั่งเค้ก ที่ Cafe mana·san ค่ะ"
+                )}
+                target="_blank"
+                rel="noopener"
+                aria-label="สอบถาม จองโต๊ะ สั่งเค้ก ทางไลน์ · Ask on LINE"
+              >
+                สอบถาม/จองโต๊ะ ทางไลน์ · Ask on LINE
+              </a>
+              <a
+                className="btn btn-ghost-pill contact-map-btn"
                 href={GOOGLE_MAPS_URL}
                 target="_blank"
                 rel="noopener"
