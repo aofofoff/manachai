@@ -394,7 +394,7 @@ export function NutShop() {
                     </a>
                     <br />
                     <a href={FACEBOOK_URL} target="_blank" rel="noopener">
-                      <strong>Facebook · Manachai shop</strong>
+                      <strong>FB manachaicashews</strong>
                     </a>
                   </div>
                 </li>
