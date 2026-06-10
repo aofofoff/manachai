@@ -207,7 +207,7 @@ export function Cafe() {
                     </a>
                     <br />
                     <a href={FACEBOOK_URL} target="_blank" rel="noopener">
-                      <strong>FB manachaicashews</strong>
+                      <strong>Facebook · Manachai</strong>
                     </a>
                   </div>
                 </li>
