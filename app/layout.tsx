@@ -1,8 +1,16 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { TopNav } from "@/components/TopNav";
 import "@/styles/colors_and_type.css";
 import "@/styles/styles.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+  variable: "--font-inter",
+});
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://manachai.vercel.app";
@@ -57,7 +65,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="th">
+    <html lang="th" className={inter.variable}>
       <body>
         <TopNav />
         {children}

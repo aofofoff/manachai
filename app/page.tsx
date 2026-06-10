@@ -1,8 +1,65 @@
 import { NutShop } from "@/components/NutShop";
+import {
+  roastedCashews,
+  charcoalCashews,
+  otherNuts,
+  shrimpPastes,
+} from "@/lib/content";
 import { FACEBOOK_URL, GOOGLE_MAPS_URL, GEO } from "@/lib/links";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://manachai.vercel.app";
+
+const priceNum = (s: string) => {
+  const n = parseInt(s.replace(/[^0-9]/g, ""), 10);
+  return Number.isFinite(n) ? n : null;
+};
+
+const brand = { "@type": "Brand", name: "Manachai" };
+
+const cashewProducts = [
+  ...roastedCashews,
+  ...charcoalCashews,
+  ...otherNuts,
+].map((p) => {
+  const nums = p.prices
+    .map((r) => priceNum(r.price))
+    .filter((n): n is number => n !== null);
+  return {
+    "@type": "Product",
+    name: p.nameEn,
+    description: p.variants.join(" · "),
+    image: `${siteUrl}${p.image || "/images/hero.JPG"}`,
+    brand,
+    offers: {
+      "@type": "AggregateOffer",
+      priceCurrency: "THB",
+      lowPrice: Math.min(...nums),
+      highPrice: Math.max(...nums),
+      offerCount: p.prices.length,
+    },
+  };
+});
+
+const shrimpProducts = shrimpPastes
+  .filter((s) => s.image && priceNum(s.price) !== null)
+  .map((s) => ({
+    "@type": "Product",
+    name: s.nameEn,
+    image: `${siteUrl}${s.image}`,
+    brand,
+    offers: {
+      "@type": "Offer",
+      priceCurrency: "THB",
+      price: priceNum(s.price),
+      availability: "https://schema.org/InStock",
+    },
+  }));
+
+const productJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [...cashewProducts, ...shrimpProducts],
+};
 
 const shopJsonLd = {
   "@context": "https://schema.org",
@@ -53,6 +110,10 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(shopJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
       />
       <NutShop />
     </main>

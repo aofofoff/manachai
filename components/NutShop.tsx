@@ -56,6 +56,7 @@ export function NutShop() {
                 placeholder="วางภาพเม็ดมะม่วงหิมพานต์ที่นี่ · Drop hero photo"
                 src="/images/hero.JPG"
                 alt="เม็ดมะม่วงหิมพานต์มานะชัย · Manachai cashews"
+                priority
               />
             </div>
           </div>

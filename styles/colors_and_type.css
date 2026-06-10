@@ -3,9 +3,9 @@
    Photography-first, near-invisible UI, single warm accent.
    ============================================================ */
 
-/* Inter — SF Pro Display/Text substitute (Google Fonts)
-   Loaded via @import so any HTML that pulls this CSS gets the font. */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+/* Inter — SF Pro Display/Text substitute.
+   Loaded via next/font (see app/layout.tsx) and exposed as --font-inter,
+   which removes the render-blocking Google Fonts @import. */
 
 :root {
   /* ---------- COLOR · BRAND ACCENT ---------- */
@@ -40,8 +40,8 @@
   /* ---------- TYPOGRAPHY · FAMILIES ---------- */
   /* SF Pro is proprietary; system-ui resolves to real SF on Apple OSes.
      Inter is the fallback for non-Apple platforms. */
-  --font-display: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
-  --font-text:    "Inter", system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+  --font-display: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+  --font-text:    var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
 
   /* ---------- TYPOGRAPHY · SCALE ---------- */
   /* token              size       wt   line   tracking */
