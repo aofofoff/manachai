@@ -253,6 +253,20 @@ export const promoSets: PromoSet[] = [
   },
 ];
 
+// Cafe atmosphere gallery — showcase photos, not tied to individual menu items.
+export const cafeGallery: { src: string; alt: string }[] = [
+  { src: "/images/cafe/aecarre.JPG", alt: "ชูครีมหน้ากรอบ · Choux au craquelin" },
+  { src: "/images/cafe/cake1.JPG", alt: "เค้กโฮมเมด · Homemade cake" },
+  { src: "/images/cafe/drink1.JPG", alt: "เครื่องดื่มของร้าน · House drink" },
+  { src: "/images/cafe/matcha.JPG", alt: "มัทฉะลาเต้ · Matcha latte" },
+  { src: "/images/cafe/cake2.JPG", alt: "เพสตรี้อบสด · Fresh pastry" },
+  { src: "/images/cafe/ice-cream2.JPG", alt: "เจลาโต้คั่วใหม่ · Fresh gelato" },
+  { src: "/images/cafe/cake3.JPG", alt: "เค้กโฮมเมด · Homemade cake" },
+  { src: "/images/cafe/drink2.JPG", alt: "เครื่องดื่มเย็น · Iced drink" },
+  { src: "/images/cafe/cake4.JPG", alt: "เค้กโฮมเมด · Homemade cake" },
+  { src: "/images/cafe/cake5.JPG", alt: "เค้กโฮมเมด · Homemade cake" },
+];
+
 export type MenuKey = "gelato" | "pastry" | "drinks";
 
 export const menuTabs: { key: MenuKey; th: string; en: string }[] = [

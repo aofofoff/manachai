@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { menu, menuTabs, type MenuKey } from "@/lib/content";
+import { menu, menuTabs, cafeGallery, type MenuKey } from "@/lib/content";
 import { FACEBOOK_URL, GOOGLE_MAPS_URL } from "@/lib/links";
 import { ImageSlot } from "./ImageSlot";
 
@@ -41,7 +41,12 @@ export function Cafe() {
               </div>
             </div>
             <div className="cafe-hero-photo">
-              <ImageSlot placeholder="ภาพภายในคาเฟ่ · Cafe interior" />
+              <ImageSlot
+                placeholder="ภาพภายในคาเฟ่ · Cafe interior"
+                src="/images/cafe/late.JPG"
+                alt="ลาเต้อาร์ตของมานะซัง · Latte art at Cafe mana·san"
+                priority
+              />
             </div>
           </div>
         </div>
@@ -51,7 +56,11 @@ export function Cafe() {
       <section className="container">
         <div className="signature">
           <div className="photo">
-            <ImageSlot placeholder="ภาพ Cashew Gelato · Signature gelato" />
+            <ImageSlot
+              placeholder="ภาพ Cashew Gelato · Signature gelato"
+              src="/images/cafe/ice-cream.JPG"
+              alt="เจลาโต้คาชิวซิกเนเจอร์ · Signature cashew gelato"
+            />
           </div>
           <div>
             <div className="eyebrow">เมนูซิกเนเจอร์ · Signature</div>
@@ -76,6 +85,34 @@ export function Cafe() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* GALLERY */}
+      <section className="container cafe-gallery" id="gallery">
+        <header className="section-header">
+          <div className="titles">
+            <div className="eyebrow">บรรยากาศร้าน · A Taste of mana·san</div>
+            <h2>
+              เจลาโต้ เพสตรี้
+              <br />
+              และกาแฟของเรา
+            </h2>
+            <div className="en">Gelato · pastry · coffee from the cafe</div>
+          </div>
+        </header>
+        <div className="gallery-grid">
+          {cafeGallery.map((g) => (
+            <div className="gallery-item" key={g.src}>
+              <Image
+                src={g.src}
+                alt={g.alt}
+                fill
+                sizes="(max-width: 700px) 50vw, 25vw"
+                style={{ objectFit: "cover" }}
+              />
+            </div>
+          ))}
         </div>
       </section>
 
