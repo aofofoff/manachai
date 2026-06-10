@@ -1,4 +1,5 @@
 import { NutShop } from "@/components/NutShop";
+import { FACEBOOK_URL, GOOGLE_MAPS_URL, GEO } from "@/lib/links";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://manachai.vercel.app";
@@ -20,6 +21,11 @@ const shopJsonLd = {
     postalCode: "85000",
     addressCountry: "TH",
   },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: GEO.latitude,
+    longitude: GEO.longitude,
+  },
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
@@ -36,12 +42,9 @@ const shopJsonLd = {
       closes: "18:00",
     },
   ],
-  sameAs: [
-    "https://line.me/ti/p/%40manachai",
-    "https://facebook.com/manachaicashews",
-  ],
+  sameAs: ["https://line.me/ti/p/%40manachai", FACEBOOK_URL],
   image: `${siteUrl}/images/hero.JPG`,
-  hasMap: "https://maps.app.goo.gl/6LSfvmXinM7KiAMb7",
+  hasMap: GOOGLE_MAPS_URL,
 };
 
 export default function Home() {

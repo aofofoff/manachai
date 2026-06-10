@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cafe } from "@/components/Cafe";
+import { FACEBOOK_URL, GOOGLE_MAPS_URL, WONGNAI_URL, GEO } from "@/lib/links";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://manachai.vercel.app";
@@ -37,6 +38,11 @@ const cafeJsonLd = {
     postalCode: "85000",
     addressCountry: "TH",
   },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: GEO.latitude,
+    longitude: GEO.longitude,
+  },
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
@@ -54,9 +60,11 @@ const cafeJsonLd = {
   servesCuisine: ["Gelato", "Pastry", "Coffee"],
   sameAs: [
     "https://line.me/ti/p/%40manachai",
-    "https://facebook.com/manachaicashews",
+    FACEBOOK_URL,
+    GOOGLE_MAPS_URL,
+    WONGNAI_URL,
   ],
-  hasMap: "https://maps.app.goo.gl/6LSfvmXinM7KiAMb7",
+  hasMap: GOOGLE_MAPS_URL,
 };
 
 export default function CafePage() {

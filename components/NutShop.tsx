@@ -7,6 +7,7 @@ import {
   promoSets,
 } from "@/lib/content";
 import { lineOrderUrl } from "@/lib/line";
+import { FACEBOOK_URL, GOOGLE_MAPS_URL } from "@/lib/links";
 import { ImageSlot } from "./ImageSlot";
 import { ProductCard } from "./ProductCard";
 
@@ -392,19 +393,15 @@ export function NutShop() {
                       <strong>LINE @manachai</strong>
                     </a>
                     <br />
-                    <a
-                      href="https://facebook.com/manachaicashews"
-                      target="_blank"
-                      rel="noopener"
-                    >
-                      <strong>FB manachaicashews</strong>
+                    <a href={FACEBOOK_URL} target="_blank" rel="noopener">
+                      <strong>Facebook · Manachai shop</strong>
                     </a>
                   </div>
                 </li>
               </ul>
               <a
                 className="btn btn-primary contact-map-btn"
-                href="https://maps.app.goo.gl/6LSfvmXinM7KiAMb7"
+                href={GOOGLE_MAPS_URL}
                 target="_blank"
                 rel="noopener"
               >

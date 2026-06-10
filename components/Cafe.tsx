@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { menu, menuTabs, type MenuKey } from "@/lib/content";
+import { FACEBOOK_URL, GOOGLE_MAPS_URL } from "@/lib/links";
 import { ImageSlot } from "./ImageSlot";
 
 export function Cafe() {
@@ -205,19 +206,15 @@ export function Cafe() {
                       <strong>LINE @manachai</strong>
                     </a>
                     <br />
-                    <a
-                      href="https://facebook.com/manachaicashews"
-                      target="_blank"
-                      rel="noopener"
-                    >
-                      <strong>FB manachaicashews</strong>
+                    <a href={FACEBOOK_URL} target="_blank" rel="noopener">
+                      <strong>Facebook · Manachai shop</strong>
                     </a>
                   </div>
                 </li>
               </ul>
               <a
                 className="btn btn-primary contact-map-btn"
-                href="https://maps.app.goo.gl/6LSfvmXinM7KiAMb7"
+                href={GOOGLE_MAPS_URL}
                 target="_blank"
                 rel="noopener"
               >
