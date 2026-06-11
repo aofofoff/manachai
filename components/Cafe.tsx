@@ -2,13 +2,13 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { menu, menuTabs, cafeGallery, type MenuKey } from "@/lib/content";
+import { cafeMenu, cafeToppings, menuTabs, cafeGallery, type MenuKey } from "@/lib/content";
 import { FACEBOOK_URL, GOOGLE_MAPS_URL } from "@/lib/links";
 import { lineOrderUrl } from "@/lib/line";
 import { ImageSlot } from "./ImageSlot";
 
 export function Cafe() {
-  const [activeMenu, setActiveMenu] = useState<MenuKey>("gelato");
+  const [activeMenu, setActiveMenu] = useState<MenuKey>("coffee");
 
   return (
     <>
@@ -123,14 +123,15 @@ export function Cafe() {
           <div className="titles">
             <div className="eyebrow">เมนู · The Menu</div>
             <h2>
-              เจลาโต้ เพสตรี้
+              เครื่องดื่ม
               <br />
-              และเครื่องดื่ม
+              และของหวาน
             </h2>
-            <div className="en">Gelato · Pastry · Drinks</div>
+            <div className="en">Coffee · Tea · Soda · Smoothies</div>
           </div>
           <p className="lede">
-            เจลาโต้ปั่นในร้านทุกเช้า เพสตรี้อบสด และเครื่องดื่มที่จับคู่กับเม็ดมะม่วงหิมพานต์ของเราเสมอ
+            กาแฟ specialty ชา โกโก้ โซดา และสมูทตี้ผลไม้ · เจลาโต้และเค้กโฮมเมดเร็วๆ นี้ ·
+            ราคาต่อแก้ว (บาท)
           </p>
         </header>
 
@@ -158,26 +159,52 @@ export function Cafe() {
               data-menu-panel={t.key}
               data-active={activeMenu === t.key}
             >
-              {menu[t.key].map((item, i) => (
-                <div className="menu-item" key={i}>
-                  <div className="left">
-                    <h4 className="name">
-                      {item.star ? (
-                        <>
-                          <span className="star">★</span> {item.name}
-                        </>
-                      ) : (
-                        item.name
-                      )}
-                    </h4>
-                    <div className="en">{item.en}</div>
-                    <div className="desc">{item.desc}</div>
+              {cafeMenu[t.key].map((section, si) => (
+                <div className="menu-group" key={si}>
+                  <div className="menu-group-head">
+                    <h4 className="menu-group-title">{section.title}</h4>
+                    {!section.note && (
+                      <div className="menu-price-cols">
+                        <span>ร้อน</span>
+                        <span>เย็น</span>
+                        <span>ปั่น</span>
+                      </div>
+                    )}
                   </div>
-                  <div className="price tbd">Price TBD</div>
+
+                  {section.note ? (
+                    <p className="menu-note">{section.note}</p>
+                  ) : (
+                    section.items.map((item, ii) => (
+                      <div className="drink-row" key={ii}>
+                        <div className="drink-name">
+                          <span className="th">
+                            {item.star && <span className="star">★</span>}
+                            {item.th}
+                          </span>
+                          <span className="en">{item.en}</span>
+                        </div>
+                        <div className="drink-prices">
+                          <span>{item.hot ?? "–"}</span>
+                          <span>{item.iced ?? "–"}</span>
+                          <span>{item.frappe ?? "–"}</span>
+                        </div>
+                      </div>
+                    ))
+                  )}
                 </div>
               ))}
             </div>
           ))}
+
+          <div className="menu-toppings">
+            <span className="topping-label">ท็อปปิ้ง · Toppings</span>
+            {cafeToppings.map((tp, i) => (
+              <span className="topping-item" key={i}>
+                {tp.th} · {tp.en} <strong>+฿{tp.price}</strong>
+              </span>
+            ))}
+          </div>
         </div>
       </section>
 

@@ -41,11 +41,19 @@ export type ShrimpPaste = {
   unit: string;
 };
 
-export type MenuItem = {
-  name: string;
+export type DrinkItem = {
+  th: string;
   en: string;
-  desc: string;
+  hot?: number;
+  iced?: number;
+  frappe?: number;
   star?: boolean;
+};
+
+export type MenuSection = {
+  title: string;
+  items: DrinkItem[];
+  note?: string;
 };
 
 export const roastedCashews: Product[] = [
@@ -267,44 +275,95 @@ export const cafeGallery: { src: string; alt: string }[] = [
   { src: "/images/cafe/cake5.JPG", alt: "เค้กโฮมเมด · Homemade cake" },
 ];
 
-export type MenuKey = "gelato" | "pastry" | "drinks";
+export type MenuKey = "coffee" | "tea" | "soda" | "sweets";
 
 export const menuTabs: { key: MenuKey; th: string; en: string }[] = [
-  { key: "gelato", th: "เจลาโต้", en: "Gelato" },
-  { key: "pastry", th: "เพสตรี้", en: "Pastry & Bakes" },
-  { key: "drinks", th: "เครื่องดื่ม", en: "Drinks" },
+  { key: "coffee", th: "กาแฟ & พิเศษ", en: "Coffee & Special" },
+  { key: "tea", th: "ชา & โกโก้", en: "Tea & Cocoa" },
+  { key: "soda", th: "โซดา & สมูทตี้", en: "Soda & Smoothies" },
+  { key: "sweets", th: "เจลาโต้ & เค้ก", en: "Gelato & Cake" },
 ];
 
-export const menu: Record<MenuKey, MenuItem[]> = {
-  gelato: [
-    { star: true, name: "Cashew Gelato", en: "Signature · Roasted Cashew", desc: "ซิกเนเจอร์ของร้าน เจลาโต้เม็ดมะม่วงหิมพานต์คั่วเอง หอมเข้มข้น" },
-    { name: "วานิลลา มาดากัสการ์", en: "Madagascar Vanilla", desc: "วานิลลาเกรดพรีเมียม กลิ่นหอมเด่นชัด" },
-    { name: "ดาร์ก ช็อกโกแลต", en: "Dark Chocolate · 70%", desc: "โกโก้เข้มข้น 70% สำหรับคนชอบช็อกโกแลตแท้" },
-    { name: "พิตาชิโอ", en: "Pistachio", desc: "พิตาชิโอบดละเอียด หวานน้อยตามตำรับอิตาลี" },
-    { name: "สตรอว์เบอร์รี่", en: "Strawberry Sorbet", desc: "สตรอว์เบอร์รี่สด ไม่ใส่นม สดชื่น" },
-    { name: "มะพร้าวอ่อน", en: "Young Coconut", desc: "มะพร้าวอ่อนแท้ หอมหวานธรรมชาติ" },
-    { name: "ชาไทย", en: "Thai Tea Gelato", desc: "ชาไทยเข้มข้น เจลาโต้หอมกลิ่นบ้าน" },
-    { name: "มะม่วง", en: "Mango Sorbet · Seasonal", desc: "มะม่วงน้ำดอกไม้ตามฤดูกาล" },
+// Prices in baht per serving: hot / iced / frappe (ปั่น). Omit a field where
+// that serving isn't offered. From the in-store menu board.
+export const cafeMenu: Record<MenuKey, MenuSection[]> = {
+  coffee: [
+    {
+      title: "กาแฟ · Coffee",
+      items: [
+        { th: "เอสเพรสโซ่", en: "Espresso", hot: 50, iced: 65, frappe: 75 },
+        { th: "อเมริกาโน่", en: "Americano", hot: 50, iced: 65 },
+        { th: "คาปูชิโน่", en: "Cappuccino", hot: 60, iced: 70, frappe: 80 },
+        { th: "ลาเต้", en: "Latte", hot: 60, iced: 70, frappe: 80 },
+        { th: "มอคค่า", en: "Mocha", hot: 65, iced: 75, frappe: 85 },
+        { th: "ยูซุคอฟฟี่", en: "Yuzu Coffee", iced: 75 },
+      ],
+    },
+    {
+      title: "เมนูพิเศษ · Special Menu",
+      items: [
+        { th: "กาหยูคาราเมลมัคคิอาโต้", en: "Kayuu Caramel Macchiato", iced: 90, star: true },
+        { th: "ดับเบิลดาร์กช็อกโกแลต", en: "Double Dark Chocolate", iced: 90 },
+        { th: "ป๊อปปี้มิลค์พีช", en: "Poppy Milk Peach", iced: 90 },
+        { th: "ช็อกโกแลตมินต์", en: "Chocolate Mint", iced: 90 },
+        { th: "มัทฉะสตรอว์เบอร์รีลาเต้", en: "Matcha Strawberry Latte", iced: 105 },
+        { th: "ไวท์ช็อกโกแลตลาเต้", en: "White Chocolate Latte", iced: 90 },
+      ],
+    },
   ],
-  pastry: [
-    { star: true, name: "โทสต์เม็ดมะม่วงหิมพานต์บัตเตอร์", en: "Cashew-Butter Toast · Signature", desc: "ขนมปังย่างเนย เม็ดมะม่วงหิมพานต์บัตเตอร์โฮมเมด น้ำผึ้งระนอง" },
-    { name: "ครัวซองต์เนยฝรั่งเศส", en: "Butter Croissant", desc: "เนยฝรั่งเศสแท้ อบสดทุกเช้า" },
-    { name: "เปนโอช็อก", en: "Pain au Chocolat", desc: "ครัวซองต์ไส้ช็อกโกแลตเข้มข้น" },
-    { name: "บราวนี่เม็ดมะม่วงหิมพานต์", en: "Cashew Brownie", desc: "ช็อกโกแลตเข้ม ท็อปเม็ดมะม่วงหิมพานต์คั่วเกลือ" },
-    { name: "ชีสเค้กหน้าไหม้", en: "Burnt Basque Cheesecake", desc: "หน้าไหม้คลาสสิก ครีมเนียนละมุน" },
-    { name: "คุกกี้เม็ดมะม่วงหิมพานต์", en: "Cashew Cookies", desc: "อบสดทุกเช้า กรอบนอกนุ่มใน" },
-    { name: "ทาร์ตผลไม้", en: "Seasonal Fruit Tart", desc: "คัสตาร์ดวานิลลา ผลไม้สดประจำฤดู" },
-    { name: "มาดเดอลีน", en: "Madeleine · Honey & Lemon", desc: "อบในแม่พิมพ์เปลือกหอย หอมเลม่อน" },
+  tea: [
+    {
+      title: "ชา & โกโก้ · Tea & Cocoa",
+      items: [
+        { th: "ชามะนาว", en: "Lemon Tea", hot: 55, iced: 60 },
+        { th: "ชาพีช", en: "Peach Tea", hot: 55, iced: 60 },
+        { th: "นมสดคาราเมล", en: "Caramel Milk", hot: 55, iced: 65, frappe: 75 },
+        { th: "นมสดโอริโอ้", en: "Oreo Milk", frappe: 70 },
+        { th: "ชาไทยนม", en: "Thai Tea", hot: 55, iced: 65, frappe: 75 },
+        { th: "ชาเขียวนม", en: "Green Tea", hot: 55, iced: 65, frappe: 75 },
+        { th: "พรีเมียมคาคาว (โกโก้)", en: "Premium Cacao", hot: 70, iced: 80, frappe: 80 },
+        { th: "มัทฉะลาเต้", en: "Matcha Latte", hot: 75, iced: 90, frappe: 105, star: true },
+        { th: "โฮจิฉะลาเต้", en: "Hojicha Latte", hot: 75, iced: 90, frappe: 105 },
+        { th: "ชาร้อนพรีเมียม", en: "Premium Tea", hot: 45 },
+      ],
+    },
   ],
-  drinks: [
-    { star: true, name: "เม็ดมะม่วงหิมพานต์ลาเต้", en: "Cashew Latte · Signature", desc: "ลาเต้กลิ่นเม็ดมะม่วงหิมพานต์คั่ว สูตรของมานะซัง" },
-    { name: "เอสเปรสโซ่", en: "Espresso · Single / Double", desc: "เมล็ดกาแฟ specialty คั่วในไทย" },
-    { name: "อเมริกาโน่", en: "Americano · Hot / Iced", desc: "ช็อตคู่ ผสมน้ำกรอง ดื่มง่ายทุกเวลา" },
-    { name: "ลาเต้", en: "Latte · Hot / Iced", desc: "นมสตีมเนียนละมุน หอมกาแฟกำลังดี" },
-    { name: "มัทฉะลาเต้", en: "Matcha Latte", desc: "ผงมัทฉะญี่ปุ่น นมสด" },
-    { name: "ชาไทย", en: "Thai Milk Tea", desc: "ชาไทยหอมเข้ม นมจืดเย็น" },
-    { name: "ชามะนาว", en: "Lemon Tea · Iced", desc: "เย็นชื่นใจ เปรี้ยวหวานกำลังดี" },
-    { name: "โกโก้", en: "Cocoa · Hot / Iced", desc: "โกโก้แท้ หอมเข้มข้น" },
-    { name: "น้ำผลไม้ปั่น", en: "Fresh Fruit Smoothie", desc: "ผลไม้สดประจำฤดูกาล ไม่ใส่น้ำตาล" },
+  soda: [
+    {
+      title: "อิตาเลียนโซดา · Italian Soda",
+      items: [
+        { th: "สตรอว์เบอร์รี่โซดา", en: "Strawberry Soda", iced: 55, frappe: 65 },
+        { th: "บลูเบอร์รี่โซดา", en: "Blueberry Soda", iced: 55, frappe: 65 },
+        { th: "เลมอนโซดา", en: "Lemon Soda", iced: 55, frappe: 65 },
+        { th: "บลูฮาวายโซดา", en: "Blue Hawaii Soda", iced: 55, frappe: 65 },
+        { th: "น้ำผึ้งมะนาวโซดา", en: "Honey Lemon Soda", iced: 60, frappe: 70 },
+        { th: "ยูซุโซดา", en: "Yuzu Soda", iced: 60, frappe: 70 },
+        { th: "ลิ้นจี่โซดา", en: "Lychee Soda", iced: 55, frappe: 65 },
+      ],
+    },
+    {
+      title: "ผลไม้ปั่น · Fruit Smoothies",
+      items: [
+        { th: "สตรอว์เบอร์รี่", en: "Strawberry", frappe: 69 },
+        { th: "บลูเบอร์รี่", en: "Blueberry", frappe: 69 },
+        { th: "มิกซ์เบอร์รี่", en: "Mixberry", frappe: 69 },
+        { th: "สตรอว์เบอร์รี่โยเกิร์ต", en: "Strawberry Yogurt", frappe: 89 },
+        { th: "บลูเบอร์รี่โยเกิร์ต", en: "Blueberry Yogurt", frappe: 89 },
+        { th: "มิกซ์เบอร์รี่โยเกิร์ต", en: "Mixberry Yogurt", frappe: 89 },
+      ],
+    },
+  ],
+  sweets: [
+    {
+      title: "เจลาโต้ & เค้ก · Gelato & Cake",
+      items: [],
+      note: "เมนูเจลาโต้และเค้กกำลังจะมาเร็วๆ นี้ · Gelato & cake menu coming soon — สอบถามได้ทาง LINE",
+    },
   ],
 };
+
+export const cafeToppings: { th: string; en: string; price: number }[] = [
+  { th: "วิปครีม", en: "Whipping cream", price: 10 },
+  { th: "เม็ดป็อป", en: "Pop juice", price: 15 },
+  { th: "ช็อตกาแฟ", en: "Coffee shot", price: 15 },
+];
