@@ -163,7 +163,7 @@ export function Cafe() {
                 <div className="menu-group" key={si}>
                   <div className="menu-group-head">
                     <h4 className="menu-group-title">{section.title}</h4>
-                    {!section.note && (
+                    {!section.note && section.variant !== "list" && (
                       <div className="menu-price-cols">
                         <span>ร้อน</span>
                         <span>เย็น</span>
@@ -174,6 +174,21 @@ export function Cafe() {
 
                   {section.note ? (
                     <p className="menu-note">{section.note}</p>
+                  ) : section.variant === "list" ? (
+                    section.items.map((item, ii) => (
+                      <div className="drink-row drink-row--single" key={ii}>
+                        <div className="drink-name">
+                          <span className="th">
+                            {item.star && <span className="star">★</span>}
+                            {item.th}
+                          </span>
+                          <span className="en">{item.en}</span>
+                        </div>
+                        <div className="single-price">
+                          {item.add ? "+" : ""}฿{item.price}
+                        </div>
+                      </div>
+                    ))
                   ) : (
                     section.items.map((item, ii) => (
                       <div className="drink-row" key={ii}>
@@ -197,14 +212,16 @@ export function Cafe() {
             </div>
           ))}
 
-          <div className="menu-toppings">
-            <span className="topping-label">ท็อปปิ้ง · Toppings</span>
-            {cafeToppings.map((tp, i) => (
-              <span className="topping-item" key={i}>
-                {tp.th} · {tp.en} <strong>+฿{tp.price}</strong>
-              </span>
-            ))}
-          </div>
+          {activeMenu !== "sweets" && (
+            <div className="menu-toppings">
+              <span className="topping-label">ท็อปปิ้งเครื่องดื่ม · Drink Toppings</span>
+              {cafeToppings.map((tp, i) => (
+                <span className="topping-item" key={i}>
+                  {tp.th} · {tp.en} <strong>+฿{tp.price}</strong>
+                </span>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 

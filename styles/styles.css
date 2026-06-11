@@ -1355,6 +1355,16 @@ body {
   padding: 13px 0;
   border-bottom: 1px dashed var(--color-divider-soft);
 }
+.drink-row--single { grid-template-columns: 1fr auto; }
+.single-price {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: var(--weight-bold);
+  color: var(--color-ink);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+  text-align: right;
+}
 .drink-name { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .drink-name .th {
   font-family: var(--font-display);
@@ -1617,6 +1627,7 @@ body[data-density="airy"] .signature { padding: 88px 72px; margin-top: 96px; mar
   .promo-band, .signature { padding: 40px 24px; }
   .menu-group-head,
   .drink-row { grid-template-columns: 1fr 126px; gap: 10px; }
+  .drink-row--single { grid-template-columns: 1fr auto; }
   .drink-prices { font-size: 14px; }
 }
 

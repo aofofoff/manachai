@@ -47,11 +47,14 @@ export type DrinkItem = {
   hot?: number;
   iced?: number;
   frappe?: number;
+  price?: number; // single price (gelato scoops / desserts / toppings)
+  add?: boolean; // render as "+฿" (toppings & cone upgrades)
   star?: boolean;
 };
 
 export type MenuSection = {
   title: string;
+  variant?: "columns" | "list"; // columns = hot/iced/frappe; list = single price
   items: DrinkItem[];
   note?: string;
 };
@@ -281,7 +284,7 @@ export const menuTabs: { key: MenuKey; th: string; en: string }[] = [
   { key: "coffee", th: "กาแฟ & พิเศษ", en: "Coffee & Special" },
   { key: "tea", th: "ชา & โกโก้", en: "Tea & Cocoa" },
   { key: "soda", th: "โซดา & สมูทตี้", en: "Soda & Smoothies" },
-  { key: "sweets", th: "เจลาโต้ & เค้ก", en: "Gelato & Cake" },
+  { key: "sweets", th: "เจลาโต้", en: "Gelato & Dessert" },
 ];
 
 // Prices in baht per serving: hot / iced / frappe (ปั่น). Omit a field where
@@ -355,9 +358,38 @@ export const cafeMenu: Record<MenuKey, MenuSection[]> = {
   ],
   sweets: [
     {
-      title: "เจลาโต้ & เค้ก · Gelato & Cake",
-      items: [],
-      note: "เมนูเจลาโต้และเค้กกำลังจะมาเร็วๆ นี้ · Gelato & cake menu coming soon — สอบถามได้ทาง LINE",
+      title: "สกู๊ป · Scoops (ถ้วยหรือโคน · Cup or Cone)",
+      variant: "list",
+      items: [
+        { th: "1 สกู๊ป", en: "1 Scoop", price: 59 },
+        { th: "2 สกู๊ป", en: "2 Scoops", price: 99 },
+        { th: "3 สกู๊ป", en: "3 Scoops", price: 139 },
+        { th: "1 ไพนต์ (16oz)", en: "1 Pint · 16oz", price: 229 },
+      ],
+    },
+    {
+      title: "เมนูพิเศษ · Special Menu",
+      variant: "list",
+      items: [
+        { th: "ครอฟเฟิล อัลมอนด์ คาราเมล", en: "Croffle Almond Caramel", price: 99, star: true },
+        { th: "ช็อคโกแลตลาวา", en: "Chocolate Lava", price: 129 },
+      ],
+    },
+    {
+      title: "ท็อปปิ้ง & โคน · Toppings & Cones",
+      variant: "list",
+      items: [
+        { th: "คาราเมลซอส", en: "Caramel sauce", price: 10, add: true },
+        { th: "ช็อกโกแลตซอส", en: "Chocolate sauce", price: 10, add: true },
+        { th: "โอริโอ", en: "Oreo", price: 5, add: true },
+        { th: "เรนโบว์", en: "Rainbow", price: 5, add: true },
+        { th: "อัลมอนด์", en: "Almond", price: 10, add: true },
+        { th: "เม็ดมะม่วงหิมพานต์", en: "Cashew nut", price: 10, add: true },
+        { th: "บราวนี่", en: "Brownie", price: 10, add: true },
+        { th: "วิปปิ้งครีม", en: "Whipping cream", price: 10, add: true },
+        { th: "วาฟเฟิลโคน / โบว์ล", en: "Waffle cone / bowl", price: 10, add: true },
+        { th: "โคนเด็ก", en: "Kids cone", price: 5, add: true },
+      ],
     },
   ],
 };
