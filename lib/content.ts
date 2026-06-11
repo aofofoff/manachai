@@ -376,6 +376,11 @@ export const cafeMenu: Record<MenuKey, MenuSection[]> = {
       ],
     },
     {
+      title: "เค้ก · Cakes",
+      items: [],
+      note: "เค้กโฮมเมดหมุนเวียนที่หน้าร้าน สอบถามเมนูและราคาได้ที่เคาน์เตอร์หรือทาง LINE · Homemade cakes rotate at the counter — ask in store or on LINE.",
+    },
+    {
       title: "ท็อปปิ้ง & โคน · Toppings & Cones",
       variant: "list",
       items: [
