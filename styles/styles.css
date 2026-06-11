@@ -1674,22 +1674,28 @@ image-slot img {
   margin-top: 24px;
   margin-bottom: 80px;
 }
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+.gallery-carousel { position: relative; }
+.gallery-track {
+  display: flex;
   gap: 14px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 2px;
 }
+.gallery-track::-webkit-scrollbar { display: none; }
 .gallery-item {
   position: relative;
-  aspect-ratio: 1 / 1;
+  flex: 0 0 300px;
+  aspect-ratio: 4 / 3;
+  scroll-snap-align: start;
   border-radius: var(--radius-md);
   overflow: hidden;
   background: linear-gradient(160deg, #efe2cf, #d9c4a3);
   appearance: none;
   border: 0;
   padding: 0;
-  width: 100%;
-  display: block;
   cursor: pointer;
 }
 .gallery-item img {
@@ -1700,8 +1706,35 @@ image-slot img {
 }
 .gallery-item:focus-visible {
   outline: 2px solid var(--color-primary-focus);
-  outline-offset: 3px;
+  outline-offset: -2px;
 }
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid var(--color-hairline);
+  background: #fff;
+  box-shadow: var(--shadow-product);
+  color: var(--color-ink);
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--dur-fast) var(--ease-out);
+}
+.carousel-arrow:hover { background: var(--color-canvas-parchment); }
+.carousel-arrow:focus-visible {
+  outline: 2px solid var(--color-primary-focus);
+  outline-offset: 2px;
+}
+.carousel-arrow.prev { left: 6px; }
+.carousel-arrow.next { right: 6px; }
 
 /* Gallery lightbox / slideshow */
 .lightbox {
@@ -1780,10 +1813,8 @@ image-slot img {
   .lightbox-close { top: 12px; right: 12px; }
 }
 @media (max-width: 700px) {
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-  }
+  .gallery-item { flex-basis: 78vw; }
+  .carousel-arrow { display: none; }
 }
 
 /* ------------------------------------------------------------

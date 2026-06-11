@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import { cafeMenu, cafeToppings, menuTabs, cafeGallery, type MenuKey } from "@/lib/content";
 import { FACEBOOK_URL, GOOGLE_MAPS_URL } from "@/lib/links";
@@ -39,6 +39,13 @@ export function Cafe() {
       document.body.style.overflow = "";
     };
   }, [lightbox, closeLightbox, showPrev, showNext]);
+
+  const galleryRef = useRef<HTMLDivElement>(null);
+  const scrollGallery = (dir: number) => {
+    const el = galleryRef.current;
+    if (el)
+      el.scrollBy({ left: dir * el.clientWidth * 0.8, behavior: "smooth" });
+  };
 
   return (
     <>
@@ -132,24 +139,42 @@ export function Cafe() {
             <div className="en">Gelato · pastry · coffee from the cafe</div>
           </div>
         </header>
-        <div className="gallery-grid">
-          {cafeGallery.map((g, i) => (
-            <button
-              type="button"
-              className="gallery-item"
-              key={g.src}
-              onClick={() => setLightbox(i)}
-              aria-label={`ดูภาพ · View ${g.alt}`}
-            >
-              <Image
-                src={g.src}
-                alt={g.alt}
-                fill
-                sizes="(max-width: 700px) 50vw, 25vw"
-                style={{ objectFit: "cover" }}
-              />
-            </button>
-          ))}
+        <div className="gallery-carousel">
+          <button
+            type="button"
+            className="carousel-arrow prev"
+            onClick={() => scrollGallery(-1)}
+            aria-label="เลื่อนซ้าย · Scroll left"
+          >
+            ‹
+          </button>
+          <div className="gallery-track" ref={galleryRef}>
+            {cafeGallery.map((g, i) => (
+              <button
+                type="button"
+                className="gallery-item"
+                key={g.src}
+                onClick={() => setLightbox(i)}
+                aria-label={`ดูภาพ · View ${g.alt}`}
+              >
+                <Image
+                  src={g.src}
+                  alt={g.alt}
+                  fill
+                  sizes="(max-width: 700px) 78vw, 300px"
+                  style={{ objectFit: "cover" }}
+                />
+              </button>
+            ))}
+          </div>
+          <button
+            type="button"
+            className="carousel-arrow next"
+            onClick={() => scrollGallery(1)}
+            aria-label="เลื่อนขวา · Scroll right"
+          >
+            ›
+          </button>
         </div>
       </section>
 
