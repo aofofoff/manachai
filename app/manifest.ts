@@ -11,7 +11,6 @@ export default function manifest(): MetadataRoute.Manifest {
     background_color: "#f6f3ee",
     theme_color: "#000000",
     icons: [
-      { src: "/icon", sizes: "32x32", type: "image/png" },
       { src: "/assets/logo-manachai.jpg", sizes: "960x960", type: "image/jpeg" },
     ],
   };

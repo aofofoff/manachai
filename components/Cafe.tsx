@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { cafeMenu, cafeToppings, menuTabs, cafeGallery, type MenuKey } from "@/lib/content";
 import { FACEBOOK_URL, GOOGLE_MAPS_URL } from "@/lib/links";
@@ -9,6 +9,36 @@ import { ImageSlot } from "./ImageSlot";
 
 export function Cafe() {
   const [activeMenu, setActiveMenu] = useState<MenuKey>("coffee");
+  const [lightbox, setLightbox] = useState<number | null>(null);
+
+  const closeLightbox = useCallback(() => setLightbox(null), []);
+  const showPrev = useCallback(
+    () =>
+      setLightbox((i) =>
+        i === null ? i : (i - 1 + cafeGallery.length) % cafeGallery.length
+      ),
+    []
+  );
+  const showNext = useCallback(
+    () =>
+      setLightbox((i) => (i === null ? i : (i + 1) % cafeGallery.length)),
+    []
+  );
+
+  useEffect(() => {
+    if (lightbox === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeLightbox();
+      else if (e.key === "ArrowLeft") showPrev();
+      else if (e.key === "ArrowRight") showNext();
+    };
+    window.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [lightbox, closeLightbox, showPrev, showNext]);
 
   return (
     <>
@@ -103,8 +133,14 @@ export function Cafe() {
           </div>
         </header>
         <div className="gallery-grid">
-          {cafeGallery.map((g) => (
-            <div className="gallery-item" key={g.src}>
+          {cafeGallery.map((g, i) => (
+            <button
+              type="button"
+              className="gallery-item"
+              key={g.src}
+              onClick={() => setLightbox(i)}
+              aria-label={`ดูภาพ · View ${g.alt}`}
+            >
               <Image
                 src={g.src}
                 alt={g.alt}
@@ -112,7 +148,7 @@ export function Cafe() {
                 sizes="(max-width: 700px) 50vw, 25vw"
                 style={{ objectFit: "cover" }}
               />
-            </div>
+            </button>
           ))}
         </div>
       </section>
@@ -330,6 +366,66 @@ export function Cafe() {
           </div>
         </div>
       </footer>
+
+      {/* GALLERY LIGHTBOX / SLIDESHOW */}
+      {lightbox !== null && (
+        <div
+          className="lightbox"
+          role="dialog"
+          aria-modal="true"
+          aria-label="แกลเลอรีคาเฟ่ · Cafe gallery"
+          onClick={closeLightbox}
+        >
+          <button
+            type="button"
+            className="lightbox-btn lightbox-close"
+            onClick={closeLightbox}
+            aria-label="ปิด · Close"
+          >
+            ×
+          </button>
+          <button
+            type="button"
+            className="lightbox-btn lightbox-prev"
+            onClick={(e) => {
+              e.stopPropagation();
+              showPrev();
+            }}
+            aria-label="ก่อนหน้า · Previous"
+          >
+            ‹
+          </button>
+          <figure className="lightbox-figure" onClick={(e) => e.stopPropagation()}>
+            <div className="lightbox-img">
+              <Image
+                src={cafeGallery[lightbox].src}
+                alt={cafeGallery[lightbox].alt}
+                fill
+                sizes="92vw"
+                style={{ objectFit: "contain" }}
+                priority
+              />
+            </div>
+            <figcaption className="lightbox-caption">
+              {cafeGallery[lightbox].alt}
+              <span className="lightbox-count">
+                {lightbox + 1} / {cafeGallery.length}
+              </span>
+            </figcaption>
+          </figure>
+          <button
+            type="button"
+            className="lightbox-btn lightbox-next"
+            onClick={(e) => {
+              e.stopPropagation();
+              showNext();
+            }}
+            aria-label="ถัดไป · Next"
+          >
+            ›
+          </button>
+        </div>
+      )}
     </>
   );
 }
