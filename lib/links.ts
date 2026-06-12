@@ -1,6 +1,7 @@
 // Canonical external profiles & location for Manachai.
 // Used by both the visible contact links and the JSON-LD structured data
 // so they never drift apart.
+export const LINE_URL = "https://line.me/ti/p/%40manachai";
 export const FACEBOOK_URL = "https://www.facebook.com/manachaicashews";
 export const GOOGLE_MAPS_URL = "https://maps.app.goo.gl/ptrs6x78hbfEKfeJA";
 export const WONGNAI_URL =

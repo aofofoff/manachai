@@ -6,8 +6,7 @@ import {
   shrimpPastes,
   promoSets,
 } from "@/lib/content";
-import { lineOrderUrl } from "@/lib/line";
-import { FACEBOOK_URL, GOOGLE_MAPS_URL } from "@/lib/links";
+import { LINE_URL, FACEBOOK_URL, GOOGLE_MAPS_URL } from "@/lib/links";
 import { ImageSlot } from "./ImageSlot";
 import { ProductCard } from "./ProductCard";
 import { Faq } from "./Faq";
@@ -39,9 +38,7 @@ export function NutShop() {
                 </a>
                 <a
                   className="btn btn-ghost-pill"
-                  href={lineOrderUrl(
-                    "สวัสดีค่ะ สนใจสั่งซื้อเม็ดมะม่วงหิมพานต์มานะชัยค่ะ"
-                  )}
+                  href={LINE_URL}
                   target="_blank"
                   rel="noopener"
                   aria-label="สั่งซื้อทางไลน์ · Order via LINE"
@@ -126,9 +123,7 @@ export function NutShop() {
             </div>
             <a
               className="btn btn-store-hero"
-              href={lineOrderUrl(
-                "สนใจสั่งซื้อ เม็ดมะม่วงหิมพานต์เผามีเปลือก Super Jumbo ค่ะ"
-              )}
+              href={LINE_URL}
               target="_blank"
               rel="noopener"
               aria-label="สั่งซื้อ Super Jumbo ทางไลน์ · Order Super Jumbo on LINE"
@@ -192,9 +187,7 @@ export function NutShop() {
                   </div>
                   <a
                     className="btn btn-primary"
-                    href={lineOrderUrl(
-                      `สนใจสั่งซื้อ ${s.nameTh} (${s.nameEn}) ค่ะ`
-                    )}
+                    href={LINE_URL}
                     target="_blank"
                     rel="noopener"
                     aria-label={`สั่งซื้อ ${s.nameTh} ทางไลน์`}
