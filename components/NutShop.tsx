@@ -308,12 +308,27 @@ export function NutShop() {
             <div>
               <div className="eyebrow">เรื่องราวของเรา · The Story</div>
               <h3>คั่วทีละกระทะ มาตั้งแต่ปู่</h3>
+              <div className="heritage-en-title">
+                Roasted by Hand, Since Grandfather&rsquo;s Day
+              </div>
               <p>
-                ร้านมานะชัยเริ่มต้นจากเตาถ่านหน้าบ้านในระนอง ปี 2524
-                จากรุ่นแรกสู่รุ่นที่สาม เรายังคั่วเม็ดมะม่วงหิมพานต์ทีละกระทะเล็ก ๆ
-                เลือกเฉพาะเม็ดเต็มสมบูรณ์ ปรุงด้วยสูตรดั้งเดิม
-                เพื่อรสชาติที่ลูกค้าจดจำได้ตั้งแต่คำแรก
+                ร้านมานะชัยเริ่มต้นจากเตาถ่านหน้าบ้านในระนอง เมื่อปี 2524 ผ่านมาสามรุ่น
+                วันนี้เตาใหญ่ขึ้น ล็อตคั่วมากขึ้น แต่มือที่คัดเม็ดยังเป็นมือคนในครอบครัวเหมือนเดิม
+                และสูตรที่ปรุงก็ยังเป็นสูตรของปู่ไม่เปลี่ยน
               </p>
+              <p className="heritage-en-body">
+                Manachai began with a charcoal stove outside our home in Ranong,
+                back in 1981. Three generations on, the stove is bigger and the
+                batches larger — but every nut is still sorted by family hands,
+                and the recipe is still grandfather&rsquo;s, unchanged.
+              </p>
+              <blockquote className="heritage-quote">
+                <p className="q-th">&ldquo;อร่อยเหมือนเดิมทุกครั้ง&rdquo;</p>
+                <cite className="q-cite">
+                  &ldquo;Tastes exactly like they remembered&rdquo; ·
+                  คำที่ลูกค้าบอกเราทุกครั้ง
+                </cite>
+              </blockquote>
             </div>
             <div className="heritage-photo">
               <ImageSlot
