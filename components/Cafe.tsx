@@ -2,12 +2,19 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
-import { cafeMenu, cafeToppings, menuTabs, cafeGallery, type MenuKey } from "@/lib/content";
+import {
+  cafeMenu,
+  cafeToppings,
+  menuTabs,
+  cafeGallery,
+  gelatoFlavours,
+  type MenuKey,
+} from "@/lib/content";
 import { LINE_URL, FACEBOOK_URL, GOOGLE_MAPS_URL } from "@/lib/links";
 import { ImageSlot } from "./ImageSlot";
 
 export function Cafe() {
-  const [activeMenu, setActiveMenu] = useState<MenuKey>("coffee");
+  const [activeMenu, setActiveMenu] = useState<MenuKey>("sweets");
   const [lightbox, setLightbox] = useState<number | null>(null);
 
   const closeLightbox = useCallback(() => setLightbox(null), []);
@@ -63,14 +70,14 @@ export function Cafe() {
                 คาเฟ่
               </h1>
               <div className="en-title">— Cafe mana·san · マナさん —</div>
-              <div className="cafe-subtag">Gelato &amp; Pastry · เจลาโต้ &amp; เพสตรี้</div>
+              <div className="cafe-subtag">เจลาโต้โฮมเมด · Homemade Gelato</div>
               <p className="intro">
-                คาเฟ่เจลาโต้และเพสตรี้สูตรเฉพาะของบ้านมานะชัย เจลาโต้เม็ดมะม่วงหิมพานต์คั่วใหม่ทุกเช้า
-                ขนมอบสด เคียงกับกาแฟ specialty ในระยะเดินไม่กี่ก้าวจากร้านเม็ดมะม่วงหิมพานต์ของเรา
+                เจลาโต้โฮมเมดปั่นสดใหม่ทุกวัน หลากหลายรสให้เลือก พร้อมรสซิกเนเจอร์จาก
+                เม็ดมะม่วงหิมพานต์คั่วเองของบ้านมานะชัย · เคียงกับเพสตรี้อบสดและกาแฟ specialty
               </p>
               <div className="hero-cta-row">
-                <a className="btn btn-primary" href="#menu">
-                  ดูเมนู · See Menu
+                <a className="btn btn-primary" href="#gelato">
+                  ดูรสเจลาโต้ · See Flavours
                 </a>
                 <a className="btn btn-ghost-pill" href="#visit">
                   เวลาเปิดร้าน · Visit Us
@@ -79,9 +86,9 @@ export function Cafe() {
             </div>
             <div className="cafe-hero-photo">
               <ImageSlot
-                placeholder="ภาพภายในคาเฟ่ · Cafe interior"
-                src="/images/cafe/late.JPG"
-                alt="ลาเต้อาร์ตของมานะซัง · Latte art at Cafe mana·san"
+                placeholder="ภาพเจลาโต้ · Gelato"
+                src="/images/cafe/ice-cream1.JPG"
+                alt="เจลาโต้โฮมเมดของมานะซัง · Homemade gelato at Cafe mana·san"
                 priority
               />
             </div>
@@ -121,6 +128,50 @@ export function Cafe() {
                 <div className="lbl">Coming soon</div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* OUR GELATO — flavours showcase */}
+      <section className="container gelato-showcase" id="gelato">
+        <div className="gelato-showcase-grid">
+          <div className="gelato-showcase-photo">
+            <Image
+              src="/images/cafe/ice-cream-mix1.JPG"
+              alt="เจลาโต้หลากรสที่ตู้ของมานะซัง · Gelato flavours at the counter"
+              fill
+              sizes="(max-width: 960px) 100vw, 50vw"
+              style={{ objectFit: "cover" }}
+            />
+          </div>
+          <div className="gelato-showcase-text">
+            <div className="eyebrow">เจลาโต้ของเรา · Our Gelato</div>
+            <h2>
+              ปั่นสดใหม่ทุกวัน
+              <br />
+              หลากหลายรสให้เลือก
+            </h2>
+            <p>
+              เจลาโต้โฮมเมดของมานะซัง ปั่นสดใหม่ทุกวันจากวัตถุดิบแท้ พร้อมรสซิกเนเจอร์
+              จากเม็ดมะม่วงหิมพานต์คั่วเองของบ้านมานะชัย หอมเข้มข้นในแบบที่หาที่ไหนไม่ได้
+            </p>
+            <div className="flavour-tags">
+              {gelatoFlavours.map((f) => (
+                <span
+                  className={f.star ? "flavour-tag flavour-tag--star" : "flavour-tag"}
+                  key={f.en}
+                >
+                  {f.star && "★ "}
+                  {f.en} · {f.th}
+                </span>
+              ))}
+              <span className="flavour-tag flavour-tag--more">
+                และอีกหลายรสหมุนเวียน · + more rotating
+              </span>
+            </div>
+            <a className="btn btn-primary" href="#menu">
+              ดูราคาเจลาโต้ · Gelato Menu
+            </a>
           </div>
         </div>
       </section>
@@ -183,15 +234,15 @@ export function Cafe() {
           <div className="titles">
             <div className="eyebrow">เมนู · The Menu</div>
             <h2>
-              เครื่องดื่ม
+              เจลาโต้
               <br />
-              และของหวาน
+              และเครื่องดื่ม
             </h2>
-            <div className="en">Coffee · Tea · Soda · Smoothies</div>
+            <div className="en">Gelato · Coffee · Tea · Soda</div>
           </div>
           <p className="lede">
-            กาแฟ specialty ชา โกโก้ โซดา และสมูทตี้ผลไม้ · เจลาโต้และเค้กโฮมเมดเร็วๆ นี้ ·
-            ราคาต่อแก้ว (บาท)
+            เจลาโต้โฮมเมดและของหวาน เคียงกับกาแฟ specialty ชา โกโก้ โซดา และสมูทตี้ผลไม้ ·
+            ราคาต่อที่ (บาท)
           </p>
         </header>
 

@@ -266,25 +266,35 @@ export const promoSets: PromoSet[] = [
 
 // Cafe atmosphere gallery — showcase photos, not tied to individual menu items.
 export const cafeGallery: { src: string; alt: string }[] = [
+  { src: "/images/cafe/ice-cream-box.JPG", alt: "ตู้เจลาโต้หลากรส · Gelato counter" },
+  { src: "/images/cafe/ice-cream3.JPG", alt: "เจลาโต้โฮมเมด · Homemade gelato" },
+  { src: "/images/cafe/ice-cream4.JPG", alt: "เจลาโต้สกู๊ป · Gelato scoop" },
+  { src: "/images/cafe/ice-cream-mix2.JPG", alt: "เจลาโต้หลากรส · Gelato flavours" },
+  { src: "/images/cafe/ice-cream5.JPG", alt: "เจลาโต้โฮมเมด · Homemade gelato" },
+  { src: "/images/cafe/ice-cream6.JPG", alt: "เจลาโต้สกู๊ป · Gelato scoop" },
+  { src: "/images/cafe/ice-cream-mix3.JPG", alt: "เจลาโต้หลากรส · Gelato flavours" },
+  { src: "/images/cafe/ice-cream2.JPG", alt: "เจลาโต้คั่วใหม่ · Fresh gelato" },
   { src: "/images/cafe/aecarre.JPG", alt: "ชูครีมหน้ากรอบ · Choux au craquelin" },
   { src: "/images/cafe/cake1.JPG", alt: "เค้กโฮมเมด · Homemade cake" },
-  { src: "/images/cafe/drink1.JPG", alt: "เครื่องดื่มของร้าน · House drink" },
   { src: "/images/cafe/matcha.JPG", alt: "มัทฉะลาเต้ · Matcha latte" },
-  { src: "/images/cafe/cake2.JPG", alt: "เพสตรี้อบสด · Fresh pastry" },
-  { src: "/images/cafe/ice-cream2.JPG", alt: "เจลาโต้คั่วใหม่ · Fresh gelato" },
-  { src: "/images/cafe/cake3.JPG", alt: "เค้กโฮมเมด · Homemade cake" },
-  { src: "/images/cafe/drink2.JPG", alt: "เครื่องดื่มเย็น · Iced drink" },
-  { src: "/images/cafe/cake4.JPG", alt: "เค้กโฮมเมด · Homemade cake" },
-  { src: "/images/cafe/cake5.JPG", alt: "เค้กโฮมเมด · Homemade cake" },
+  { src: "/images/cafe/drink1.JPG", alt: "เครื่องดื่มของร้าน · House drink" },
+];
+
+// Gelato flavours confirmed from the shop's display case (more rotate seasonally).
+export const gelatoFlavours: { en: string; th: string; star?: boolean }[] = [
+  { en: "Cashew", th: "เม็ดมะม่วงหิมพานต์", star: true },
+  { en: "Coffee Almond", th: "กาแฟอัลมอนด์" },
+  { en: "Matcha", th: "มัทฉะ" },
+  { en: "Mixberry", th: "มิกซ์เบอร์รี่" },
 ];
 
 export type MenuKey = "coffee" | "tea" | "soda" | "sweets";
 
 export const menuTabs: { key: MenuKey; th: string; en: string }[] = [
+  { key: "sweets", th: "เจลาโต้", en: "Gelato & Dessert" },
   { key: "coffee", th: "กาแฟ & พิเศษ", en: "Coffee & Special" },
   { key: "tea", th: "ชา & โกโก้", en: "Tea & Cocoa" },
   { key: "soda", th: "โซดา & สมูทตี้", en: "Soda & Smoothies" },
-  { key: "sweets", th: "เจลาโต้", en: "Gelato & Dessert" },
 ];
 
 // Prices in baht per serving: hot / iced / frappe (ปั่น). Omit a field where
