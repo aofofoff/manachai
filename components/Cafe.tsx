@@ -102,8 +102,8 @@ export function Cafe() {
           <div className="photo">
             <ImageSlot
               placeholder="ภาพ Cashew Gelato · Signature gelato"
-              src="/images/cafe/ice-cream.JPG"
-              alt="เจลาโต้คาชิวซิกเนเจอร์ · Signature cashew gelato"
+              src="/images/cafe/cashew-gelato.jpg"
+              alt="เจลาโต้รสกาหยู · Signature cashew gelato"
             />
           </div>
           <div>
@@ -124,8 +124,8 @@ export function Cafe() {
                 <div className="lbl">Single or double scoop</div>
               </div>
               <div className="item">
-                <div className="num">฿—</div>
-                <div className="lbl">Coming soon</div>
+                <div className="num">฿89</div>
+                <div className="lbl">Signature cup</div>
               </div>
             </div>
           </div>
@@ -152,8 +152,9 @@ export function Cafe() {
               หลากหลายรสให้เลือก
             </h2>
             <p>
-              เจลาโต้โฮมเมดของมานะซัง ปั่นสดใหม่ทุกวันจากวัตถุดิบแท้ พร้อมรสซิกเนเจอร์
-              จากเม็ดมะม่วงหิมพานต์คั่วเองของบ้านมานะชัย หอมเข้มข้นในแบบที่หาที่ไหนไม่ได้
+              เจลาโต้โฮมเมดของมานะซัง ปั่นสดใหม่ทุกวันจากวัตถุดิบแท้ มีรสประจำให้เลือกตลอด
+              และมีรสพิเศษหมุนเวียนตามฤดูกาล พร้อมรสซิกเนเจอร์ &ldquo;กาหยู&rdquo;
+              จากเม็ดมะม่วงหิมพานต์คั่วเองของบ้านมานะชัย
             </p>
             <div className="flavour-tags">
               {gelatoFlavours.map((f) => (
@@ -166,7 +167,7 @@ export function Cafe() {
                 </span>
               ))}
               <span className="flavour-tag flavour-tag--more">
-                และอีกหลายรสหมุนเวียน · + more rotating
+                และรสพิเศษตามฤดูกาล · + seasonal flavours
               </span>
             </div>
             <a className="btn btn-primary" href="#menu">

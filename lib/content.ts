@@ -280,12 +280,14 @@ export const cafeGallery: { src: string; alt: string }[] = [
   { src: "/images/cafe/drink1.JPG", alt: "เครื่องดื่มของร้าน · House drink" },
 ];
 
-// Gelato flavours confirmed from the shop's display case (more rotate seasonally).
+// Always-available gelato flavours (more flavours rotate seasonally).
 export const gelatoFlavours: { en: string; th: string; star?: boolean }[] = [
-  { en: "Cashew", th: "เม็ดมะม่วงหิมพานต์", star: true },
-  { en: "Coffee Almond", th: "กาแฟอัลมอนด์" },
+  { en: "Cashew", th: "กาหยู", star: true },
+  { en: "Chocolate", th: "ช็อกโกแลต" },
   { en: "Matcha", th: "มัทฉะ" },
-  { en: "Mixberry", th: "มิกซ์เบอร์รี่" },
+  { en: "Vanilla", th: "วานิลลา" },
+  { en: "Strawberry", th: "สตรอว์เบอร์รี่" },
+  { en: "Mango", th: "มะม่วง" },
 ];
 
 export type MenuKey = "coffee" | "tea" | "soda" | "sweets";
