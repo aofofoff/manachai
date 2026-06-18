@@ -10,6 +10,7 @@ import { LINE_URL, FACEBOOK_URL, GOOGLE_MAPS_URL } from "@/lib/links";
 import { ImageSlot } from "./ImageSlot";
 import { ProductCard } from "./ProductCard";
 import { Faq } from "./Faq";
+import { OpenStatus } from "./OpenStatus";
 
 export function NutShop() {
   return (
@@ -384,6 +385,7 @@ export function NutShop() {
                   <div className="value">
                     <strong>ทุกวัน · 08:00 – 18:00</strong>
                     <span className="en">Open daily</span>
+                    <OpenStatus variant="shop" />
                   </div>
                 </li>
                 <li>

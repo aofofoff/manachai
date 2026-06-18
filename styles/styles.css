@@ -30,6 +30,66 @@ body {
   top: 12px;
 }
 
+/* Open-now / closed badge in the contact hours */
+.open-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 9px;
+  padding: 4px 11px;
+  border-radius: var(--radius-pill);
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--color-ink-muted-48);
+  font-size: 12px;
+  font-weight: var(--weight-strong);
+  letter-spacing: 0.01em;
+}
+.open-badge--open {
+  background: rgba(34, 168, 90, 0.12);
+  color: #1f7a45;
+}
+.open-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.open-badge--open .open-dot {
+  background: #22a85a;
+  box-shadow: 0 0 0 3px rgba(34, 168, 90, 0.2);
+}
+
+/* Floating "Order on LINE" button — mobile only (nav LINE link is hidden there) */
+.floating-order {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 90;
+  display: none;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 20px 13px 17px;
+  border-radius: var(--radius-pill);
+  background: var(--color-primary);
+  color: #fff;
+  font-family: var(--font-text);
+  font-size: 15px;
+  font-weight: var(--weight-strong);
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(184, 83, 29, 0.42);
+}
+.floating-order svg {
+  width: 19px;
+  height: 19px;
+  flex-shrink: 0;
+}
+.floating-order:active {
+  transform: var(--press-scale);
+}
+@media (max-width: 960px) {
+  .floating-order { display: inline-flex; }
+}
+
 /* 404 — branded not-found page */
 .notfound {
   min-height: 70vh;

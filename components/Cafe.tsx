@@ -12,6 +12,7 @@ import {
 } from "@/lib/content";
 import { LINE_URL, FACEBOOK_URL, GOOGLE_MAPS_URL } from "@/lib/links";
 import { ImageSlot } from "./ImageSlot";
+import { OpenStatus } from "./OpenStatus";
 
 export function Cafe() {
   const [activeMenu, setActiveMenu] = useState<MenuKey>("sweets");
@@ -378,6 +379,7 @@ export function Cafe() {
                     <br />
                     ศ.–ส. 08:00–19:00 · อา. 08:00–18:00
                     <span className="en">Mon–Thu 8–18 · Fri–Sat 8–19 · Sun 8–18</span>
+                    <OpenStatus variant="cafe" />
                   </div>
                 </li>
                 <li>
