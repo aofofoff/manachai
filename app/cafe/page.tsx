@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cafe } from "@/components/Cafe";
+import { cafeMenu, menuTabs } from "@/lib/content";
 import { FACEBOOK_URL, GOOGLE_MAPS_URL, WONGNAI_URL, GEO } from "@/lib/links";
 
 const siteUrl =
@@ -20,6 +21,40 @@ export const metadata: Metadata = {
   },
   alternates: { canonical: `${siteUrl}/cafe` },
 };
+
+// Menu structured data generated from the real cafe menu, so Google can
+// show menu rich results. One MenuSection per section, MenuItem per item.
+const menuSections = menuTabs.flatMap((tab) =>
+  cafeMenu[tab.key]
+    .filter((section) => section.items.length > 0)
+    .map((section) => ({
+      "@type": "MenuSection",
+      name: section.title,
+      hasMenuItem: section.items.map((item) => {
+        const prices = [item.hot, item.iced, item.frappe, item.price].filter(
+          (n): n is number => typeof n === "number"
+        );
+        const offers =
+          prices.length > 1
+            ? {
+                "@type": "AggregateOffer",
+                priceCurrency: "THB",
+                lowPrice: Math.min(...prices),
+                highPrice: Math.max(...prices),
+              }
+            : {
+                "@type": "Offer",
+                priceCurrency: "THB",
+                price: prices[0],
+              };
+        return {
+          "@type": "MenuItem",
+          name: `${item.th} · ${item.en}`,
+          offers,
+        };
+      }),
+    }))
+);
 
 const cafeJsonLd = {
   "@context": "https://schema.org",
@@ -65,6 +100,11 @@ const cafeJsonLd = {
     WONGNAI_URL,
   ],
   hasMap: GOOGLE_MAPS_URL,
+  hasMenu: {
+    "@type": "Menu",
+    name: "เมนูมานะซัง · Cafe mana·san Menu",
+    hasMenuSection: menuSections,
+  },
 };
 
 export default function CafePage() {

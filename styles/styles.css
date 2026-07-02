@@ -606,6 +606,13 @@ body {
   margin: 0 6px;
   opacity: 0.5;
 }
+.product-card .product-desc {
+  font-size: 13px;
+  line-height: 1.55;
+  font-weight: var(--weight-light);
+  color: var(--color-ink-muted-80);
+  margin: 0 0 14px;
+}
 .product-card .pricelist {
   border-top: 1px solid var(--color-divider-soft);
   padding-top: 8px;

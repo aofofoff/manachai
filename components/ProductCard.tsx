@@ -14,6 +14,7 @@ export function ProductCard({ p }: { p: Product }) {
         <div className="variants">
           {p.variants[0]} <span className="dot"></span> {p.variants[1]}
         </div>
+        {p.desc && <p className="product-desc">{p.desc}</p>}
         <div className="pricelist">
           {p.prices.map((row, i) => (
             <div key={i} className={row.featured ? "row featured" : "row"}>

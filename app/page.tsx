@@ -29,7 +29,7 @@ const cashewProducts = [
   return {
     "@type": "Product",
     name: p.nameEn,
-    description: p.variants.join(" · "),
+    description: p.desc || p.variants.join(" · "),
     image: `${siteUrl}${p.image || "/images/hero.JPG"}`,
     brand,
     offers: {

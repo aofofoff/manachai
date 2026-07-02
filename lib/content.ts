@@ -13,6 +13,7 @@ export type Product = {
   nameTh: string;
   nameEn: string;
   variants: [string, string];
+  desc?: string; // short keyword-rich line shown on the card + used in Product JSON-LD
   prices: Price[];
 };
 
@@ -69,6 +70,7 @@ export const roastedCashews: Product[] = [
     nameTh: "เม็ดมะม่วงหิมพานต์อบเกลือ",
     nameEn: "Salted Roasted Cashew",
     variants: ["เนื้อเม็ดขาว", "Hand-roasted"],
+    desc: "กาหยูอบเกลือคั่วมือทีละกระทะ เค็มกำลังดี ของฝากยอดนิยมจากระนอง",
     prices: [
       { size: "175g", price: "฿100" },
       { size: "350g", price: "฿180" },
@@ -83,6 +85,7 @@ export const roastedCashews: Product[] = [
     nameTh: "เม็ดมะม่วงหิมพานต์อบเนย",
     nameEn: "Butter Roasted Cashew",
     variants: ["หอมเนยกลมกล่อม", "Classic"],
+    desc: "เม็ดมะม่วงหิมพานต์อบเนยหอมกลมกล่อม สูตรดั้งเดิมของบ้านมานะชัย",
     prices: [
       { size: "175g", price: "฿100" },
       { size: "350g", price: "฿180" },
@@ -98,6 +101,7 @@ export const roastedCashews: Product[] = [
     nameTh: "เม็ดมะม่วงหิมพานต์คั่วข้าว",
     nameEn: "Rice-Roasted Cashew",
     variants: ["กลิ่นข้าวคั่ว", "Traditional craft"],
+    desc: "คั่วข้าวแบบโบราณ หอมกลิ่นข้าวคั่วเป็นเอกลักษณ์ หาทานยากในปัจจุบัน",
     prices: [
       { size: "175g", price: "฿100" },
       { size: "350g", price: "฿180" },
@@ -115,6 +119,7 @@ export const charcoalCashews: Product[] = [
     nameTh: "เม็ดมะม่วงหิมพานต์เผา มีเปลือก",
     nameEn: "Charcoal-Roasted · In Shell",
     variants: ["แกะเอง สนุกกว่า", "Whole"],
+    desc: "กาหยูเผาทั้งเปลือกแบบระนองแท้ หอมกลิ่นเผาถ่าน กระเทาะเองเหมือนกินที่สวน",
     prices: [
       { size: "150g", price: "฿90" },
       { size: "300g", price: "฿180" },
@@ -129,6 +134,7 @@ export const charcoalCashews: Product[] = [
     nameTh: "เม็ดมะม่วงหิมพานต์เผา แกะเปลือก",
     nameEn: "Charcoal-Roasted · Shelled",
     variants: ["พร้อมทาน หอมเข้ม", "Ready"],
+    desc: "กาหยูเผาแกะเปลือกพร้อมทาน รสธรรมชาติเข้มข้น ไม่ปรุงแต่ง",
     prices: [
       { size: "150g", price: "฿100" },
       { size: "500g", price: "฿290", featured: true },
@@ -142,6 +148,7 @@ export const charcoalCashews: Product[] = [
     nameTh: "Super Jumbo คั่วเกลือ",
     nameEn: "Super Jumbo · Salted in-shell",
     variants: ["เม็ดใหญ่พิเศษ", "Flagship grade"],
+    desc: "เม็ดใหญ่พิเศษเกรดเรือธงของร้าน คั่วเกลือทั้งเปลือก มีจำนวนจำกัดต่อล็อต",
     prices: [
       { size: "150g", price: "฿90" },
       { size: "300g", price: "฿180" },
@@ -159,6 +166,7 @@ export const otherNuts: Product[] = [
     nameTh: "อัลมอนด์ อเมริกา",
     nameEn: "American Almond · Salted / Unsalted",
     variants: ["อบเกลือ", "อบจืด"],
+    desc: "อัลมอนด์นำเข้าจากอเมริกา อบใหม่ทุกล็อต เลือกได้ทั้งอบเกลือและอบจืด",
     prices: [
       { size: "240g", price: "฿120" },
       { size: "500g", price: "฿240", featured: true },
@@ -172,6 +180,7 @@ export const otherNuts: Product[] = [
     nameTh: "เม็ดฟักทองอบ",
     nameEn: "Roasted Pumpkin Seed · Salted / Unsalted",
     variants: ["อบเกลือ", "อบจืด"],
+    desc: "เม็ดฟักทองอบกรอบ ของทานเล่นเพื่อสุขภาพ อบสดใหม่ที่ร้าน",
     prices: [
       { size: "240g", price: "฿100" },
       { size: "500g", price: "฿200", featured: true },
@@ -186,6 +195,7 @@ export const otherNuts: Product[] = [
     nameTh: "แมคคาเดเมีย ออสเตรเลีย",
     nameEn: "Australian Macadamia · Salted / Unsalted",
     variants: ["บรรจุกระปุก", "Premium grade"],
+    desc: "แมคคาเดเมียออสเตรเลียเกรดพรีเมียม บรรจุกระปุก เหมาะเป็นของขวัญของฝาก",
     prices: [{ size: "195g · กระปุก", price: "฿220", featured: true }],
   },
   {
@@ -196,6 +206,7 @@ export const otherNuts: Product[] = [
     nameTh: "พิตาชิโอ มีเปลือก",
     nameEn: "In-Shell Pistachio · Salted / Unsalted",
     variants: ["อเมริกา", "อบเกลือ / อบจืด"],
+    desc: "พิตาชิโออเมริกามีเปลือก อบใหม่หอมมัน เลือกอบเกลือหรืออบจืดได้",
     prices: [
       { size: "240g", price: "฿150" },
       { size: "500g", price: "฿300", featured: true },
