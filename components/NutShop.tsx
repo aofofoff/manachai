@@ -5,6 +5,7 @@ import {
   otherNuts,
   shrimpPastes,
   promoSets,
+  cashewCreations,
 } from "@/lib/content";
 import { LINE_URL, FACEBOOK_URL, GOOGLE_MAPS_URL } from "@/lib/links";
 import { ImageSlot } from "./ImageSlot";
@@ -28,10 +29,10 @@ export function NutShop() {
                 <span className="accent">กาหยู ระนอง</span>
                 <span className="accent">Manachai cashews from Ranong</span>
               </h1>
-              <p className="subtitle-en">Hand-Roasted Thai Cashews · Since 1981</p>
+              <p className="subtitle-en">Roasted Thai Cashews · Since 1981</p>
               <p className="intro">
                 เม็ดมะม่วงหิมพานต์คั่วมือ คัดเกรดพรีเมียม จากระนอง
-                ส่งตรงถึงคุณเหมือนวันแรกที่เปิดร้านเมื่อ 45 ปีก่อน
+                ส่งตรงถึงคุณด้วยรสชาติดั้งเดิม เหมือนวันแรกที่เปิดร้าน
               </p>
               <div className="hero-cta-row">
                 <a className="btn btn-primary" href="#products">
@@ -112,9 +113,9 @@ export function NutShop() {
                 fontVariantNumeric: "tabular-nums",
               }}
             >
-              <span>150g · ฿90</span>
+              <span>150g · ฿100</span>
               <span style={{ opacity: 0.4 }}>·</span>
-              <span>300g · ฿180</span>
+              <span>300g · ฿190</span>
               <span style={{ opacity: 0.4 }}>·</span>
               <span>
                 <strong style={{ color: "var(--color-primary-on-dark)", fontWeight: 600 }}>
@@ -148,7 +149,7 @@ export function NutShop() {
           <div className="titles">
             <div className="eyebrow">โปรโมชั่นเซ็ต · Bundle Deals</div>
             <h2>
-              เซ็ตคุ้ม
+              เซ็ตสุดคุ้ม
               <br />
               จัดให้แล้ว
             </h2>
@@ -240,7 +241,7 @@ export function NutShop() {
         {/* OTHER NUTS & SEEDS */}
         <header className="section-header">
           <div className="titles">
-            <div className="eyebrow">ถั่วและเมล็ด · Other Nuts &amp; Seeds</div>
+            <div className="eyebrow">ถั่วและเมล็ดยอดนิยมเกรดนำเข้า · Other Nuts &amp; Seeds</div>
             <h2>
               นำเข้าคัดเกรด
               <br />
@@ -263,7 +264,7 @@ export function NutShop() {
         {/* SHRIMP PASTE */}
         <header className="section-header">
           <div className="titles">
-            <div className="eyebrow">ของฝากเมืองระนอง · Ranong Speciality</div>
+            <div className="eyebrow">ของฝากเมืองระนอง · กะปิ</div>
             <h2>
               กะปิระนอง
               <br />
@@ -295,6 +296,50 @@ export function NutShop() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* PREMIUM CASHEW SELECTION — cashew-based creations */}
+      <section className="container premium-selection" id="creations">
+        <div className="premium-grid">
+          <div className="premium-photo">
+            <ImageSlot
+              placeholder="ภาพเจลาโต้รสกาหยู · Cashew creation"
+              src="/images/cafe/cashew-gelato.jpg"
+              alt="เจลาโต้รสกาหยูของมานะซัง · Cashew gelato"
+            />
+          </div>
+          <div className="premium-text">
+            <div className="eyebrow">
+              Premium Cashew Selection · Artisanal Recipes
+            </div>
+            <h2>
+              จากกาหยูระนอง
+              <br />
+              สู่เมนูแปรรูปสุดพรีเมียม
+            </h2>
+            <p className="lede">
+              จากวัตถุดิบชั้นเลิศของระนอง สู่เมนูแปรรูปสุดพรีเมียม รสสัมผัสเนียนนุ่ม
+              หอมมันจากไขมันดีธรรมชาติ
+            </p>
+            <ul className="creation-list">
+              {cashewCreations.map((c) => (
+                <li className="creation-item" key={c.en}>
+                  <div className="creation-name">
+                    <span className="th">{c.th}</span>
+                    <span className="en">{c.en}</span>
+                  </div>
+                  <div className="creation-meta">
+                    <span className="creation-note">{c.note}</span>
+                    {c.price && <span className="creation-price">{c.price}</span>}
+                  </div>
+                </li>
+              ))}
+            </ul>
+            <a className="btn btn-primary" href="/cafe">
+              ชิมที่ Cafe mana·san · Taste at the Cafe →
+            </a>
+          </div>
         </div>
       </section>
 
